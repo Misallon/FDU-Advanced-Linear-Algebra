@@ -1,0 +1,17 @@
+\newcounter{problem}[section]
+\renewcommand{\theproblem}{\arabic{problem}}
+
+\newenvironment{problem}[1][]{%
+  \refstepcounter{problem}%
+  \par\medskip
+  \noindent\textbf{\theproblem.}%
+  \if\relax\detokenize{#1}\relax\else\ \textbf{（#1）}\fi\ \ignorespaces}{%
+  \par\medskip
+}
+
+\newenvironment{solution}{%
+  \par\smallskip
+  \noindent\textbf{Solution：}\par
+}{%
+  \par\medskip
+}
