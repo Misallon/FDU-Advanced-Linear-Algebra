@@ -8,6 +8,8 @@ cd FDU-Advanced-Linear-Algebra
 xelatex main.tex
 ```
 
+目前源码仓库没有跟踪编译生成的pdf，但考虑到有的同学可能不方便编译latex源码，所以设置了一个github Actions，可以在仓库主页右上角 -> Actions -> All workflows 页面找到最近运行的workflow run，点进去就可以下载编译完成的pdf啦！
+
 # 更新日志
 
 #### 2026/03/07
