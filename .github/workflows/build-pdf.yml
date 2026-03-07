@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - "**"
+    paths:
+      - "**/*.tex"
   pull_request:
+    paths:
+      - "**/*.tex"
 
 jobs:
   build:
