@@ -11,7 +11,31 @@ A^m + B^m = \frac{1}{m}\sum_{k=0}^{m-1} \left(A + \omega^k B\right)^m.
 注：$\exp(\ii\theta) = \ee^{\ii\theta} = \cos\theta + \ii\sin\theta$。
 
 \begin{solution}
-% TODO: 在此填写解答。
+把 $(A+\omega^kB)^m$ 视为 $m$ 个 $(A+\omega^kB)$ 的乘积并展开。
+
+对 $r=0,1,\dots,m$，记 $S_r$ 为“恰含 $r$ 个 $B$、$m-r$ 个 $A$ 的所有有序乘积之和”。
+注意 $S_r$ 与 $k$ 无关。因为每出现一个 $B$ 都会贡献一个因子 $\omega^k$，故
+\[
+(A+\omega^kB)^m=\sum_{r=0}^m \omega^{kr}S_r.
+\]
+于是
+\[
+\frac1m\sum_{k=0}^{m-1}(A+\omega^kB)^m
+=\sum_{r=0}^m\left(\frac1m\sum_{k=0}^{m-1}\omega^{kr}\right)S_r.
+\]
+由单位根求和公式，
+\[
+\sum_{k=0}^{m-1}\omega^{kr}=
+\begin{cases}
+m,& r=0\ \text{或}\ r=m,\\
+0,& 1\le r\le m-1,
+\end{cases}
+\]
+所以仅保留 $r=0,m$ 两项：
+\[
+\frac1m\sum_{k=0}^{m-1}(A+\omega^kB)^m=S_0+S_m=A^m+B^m.
+\]
+证毕。
 \end{solution}
 \end{problem}
 
@@ -23,7 +47,22 @@ A_{ij} = \omega^{(i-1)(j-1)},
 求 $A^{-1}$。
 
 \begin{solution}
-% TODO: 在此填写解答。
+记 $A^\ast$ 为 $A$ 的共轭转置。对任意 $1\le i,\ell\le n$，
+\[
+(AA^\ast)_{i\ell}
+=\sum_{j=1}^n A_{ij}\overline{A_{\ell j}}
+=\sum_{j=1}^n \omega^{(i-1)(j-1)}\omega^{-(\ell-1)(j-1)}
+=\sum_{j=1}^n \omega^{(i-\ell)(j-1)}.
+\]
+当 $i=\ell$ 时，上式为 $n$；当 $i\ne \ell$ 时，上式是首项为 $1$、公比为
+$\omega^{i-\ell}\ne1$ 的等比和，因此为 $0$。故
+\[
+AA^\ast=nI_n.
+\]
+从而 $A$ 可逆，且
+\[
+A^{-1}=\frac1nA^\ast.
+\]
 \end{solution}
 \end{problem}
 
@@ -39,7 +78,106 @@ z_1^2 + z_2^2 + z_3^2 - z_1z_2 - z_2z_3 - z_1z_3 = 0.
 再利用此工具证明 Napoleon 定理：在欧氏平面内，由三角形 $ABC$ 的各边分别向外作正三角形，则这三个正三角形的中心两两相连可构成正三角形。
 
 \begin{solution}
-% TODO: 在此填写解答。
+\textbf{充要条件:}
+
+设
+\[
+u=z_1-z_2,\quad v=z_2-z_3,\quad w=z_3-z_1.
+\]
+则 $u+v+w=0$，且
+\[
+u^2+v^2+w^2
+=2\bigl(z_1^2+z_2^2+z_3^2-z_1z_2-z_2z_3-z_1z_3\bigr).
+\]
+因此题设等价于在 $u+v+w=0$ 下证明
+\[
+|u|=|v|=|w|
+\iff
+u^2+v^2+w^2=0.
+\]
+
+$(\Rightarrow)$ 设 $|u|=|v|=|w|$。若 $v=0$ 则 $u=w=0$，结论显然。
+
+以下设 $v\ne0$，令 $t=u/v$。由 $|u|=|v|$ 得 $|t|=1$。
+又 $w=-(u+v)=-(t+1)v$ 且 $|w|=|v|$，故 $|t+1|=1$。
+于是
+\[
+|t+1|^2=(t+1)(\overline t+1)=1
+\Longrightarrow t+\overline t+1=0
+\Longrightarrow \operatorname{Re}(t)=-\frac12.
+\]
+结合 $|t|=1$，得 $t=\ee^{\pm2\pi\ii/3}$，从而 $t^2+t+1=0$。故
+\[
+u^2+v^2+w^2
+=v^2\!\left(t^2+1+(t+1)^2\right)
+=2v^2(t^2+t+1)=0.
+\]
+
+$(\Leftarrow)$ 设 $u^2+v^2+w^2=0$ 且 $u+v+w=0$。代入 $w=-u-v$ 得
+\[
+u^2+v^2+uv=0.
+\]
+若 $v=0$ 则 $u=w=0$，结论显然。若 $v\ne0$，令 $t=u/v$，则
+\[
+t^2+t+1=0.
+\]
+于是 $|t|=1$ 且 $|t+1|=1$，故
+\[
+|u|=|t||v|=|v|,\qquad
+|w|=|u+v|=|t+1||v|=|v|.
+\]
+即 $|u|=|v|=|w|$。
+
+综上，
+\[
+|z_1-z_2|=|z_2-z_3|=|z_3-z_1|
+\iff
+z_1^2+z_2^2+z_3^2-z_1z_2-z_2z_3-z_1z_3=0.
+\]
+
+\textbf{下面证明 Napoleon 定理：}
+
+把平面视为复平面，设三角形 $ABC$ 的顶点为 $z_1,z_2,z_3$。
+在边 $z_1z_2,z_2z_3,z_3z_1$ 外侧作正三角形，其中心分别记为 $U,V,W$。
+
+记
+\[
+a=\frac12+\frac{\ii}{2\sqrt3},\qquad
+b=\frac12-\frac{\ii}{2\sqrt3}.
+\]
+
+由旋转变换我们有：
+
+\[
+    U - z_2 = \frac{\sqrt{3}}{3} e^{i \frac{\pi}{6}}(z_1 - z_2) \Rightarrow U = az_1 + bz_2.
+\]
+
+同理，
+
+\[
+V=az_2+bz_3,\qquad
+W=az_3+bz_1.
+\]
+直接按系数展开并合并同类项可得
+\[
+U^2+V^2+W^2-UV-VW-WU
+=(a^2+b^2-ab)\bigl(z_1^2+z_2^2+z_3^2-z_1z_2-z_2z_3-z_1z_3\bigr).
+\]
+而
+\[
+a+b=1,\qquad ab=\frac13
+\Longrightarrow
+a^2+b^2-ab=(a+b)^2-3ab=1-1=0.
+\]
+故
+\[
+U^2+V^2+W^2-UV-VW-WU=0.
+\]
+由第一部分充要条件，得到
+\[
+|U-V|=|V-W|=|W-U|,
+\]
+即 $U,V,W$ 构成正三角形。Napoleon 定理得证。
 \end{solution}
 \end{problem}
 
@@ -60,7 +198,144 @@ A = XTX^{-1}.
 \]
 
 \begin{solution}
-% TODO: 在此填写解答。
+\begin{solnote}
+笨人在做题的时候看错了，以为 $X$ 一定要是正交阵；
+但实际上 $X$ 只要可逆就行了，比起正交阵条件会宽一点，过程也会简单一点（但说实话还是很恶心）。
+不过我并不打算改了，所以你们会看到分解前两个矩阵的时候我还是做了正交化。
+\end{solnote}
+
+先对 $A-\lambda I$ 做列变换 $C_1\leftarrow C_1+C_2+C_3+C_4$：
+\[
+\begin{bmatrix}
+-1 - \lambda & 4 & -3 & 1 \\
+-8 & 23 - \lambda & -21 & 7 \\
+-26 & 74 & -70 - \lambda & 23 \\
+-61 & 174 & -166 & 54 - \lambda
+\end{bmatrix}
+\longrightarrow
+\begin{bmatrix}
+1-\lambda & 4 & -3 & 1 \\
+1-\lambda & 23-\lambda & -21 & 7 \\
+1-\lambda & 74 & -70-\lambda & 23 \\
+1-\lambda & 174 & -166 & 54-\lambda
+\end{bmatrix}.
+\]
+所以当 $\lambda=1$ 时第一列为零列，$\det(A-I)=0$。故 $1$ 是特征值，可取特征向量
+\[
+x_0=\begin{bmatrix}1\\1\\1\\1\end{bmatrix}.
+\]
+
+注意到 $x_0$ 是4阶Hadamard 矩阵 $H_4$ 的第一列元素构成的列向量，因此我们可以取归一化 Hadamard 矩阵作为第一次迭代时的正交矩阵：
+
+\[
+X_0=\frac12
+\begin{bmatrix}
+1&1&1&1\\
+1&-1&1&-1\\
+1&1&-1&-1\\
+1&-1&-1&1
+\end{bmatrix},
+\qquad X_0^\top X_0=I,
+\]
+其第一列正是 $x_0/\|x_0\|$。计算得
+\[
+B:=X_0^\top A X_0=
+\begin{bmatrix}
+1 & -179 & \frac{177}{2} & -\frac{13}{2}\\
+0 & 78 & -\frac{77}{2} & \frac{5}{2}\\
+0 & 145 & -\frac{143}{2} & \frac{9}{2}\\
+0 & -53 & \frac{53}{2} & -\frac{3}{2}
+\end{bmatrix}
+=\begin{bmatrix}
+1 & *\\
+0 & A_1
+\end{bmatrix},
+\]
+其中
+\[
+A_1=
+\begin{bmatrix}
+78 & -\frac{77}{2} & \frac{5}{2}\\
+145 & -\frac{143}{2} & \frac{9}{2}\\
+-53 & \frac{53}{2} & -\frac{3}{2}
+\end{bmatrix}.
+\]
+
+继续分解 $A_1$。可验算
+\[
+A_1\begin{bmatrix}1\\2\\0\end{bmatrix}
+=\begin{bmatrix}1\\2\\0\end{bmatrix},
+\]
+故 $1$ 也是 $A_1$ 的特征值。取
+\[
+X_1=
+\begin{bmatrix}
+\frac1{\sqrt5} & -\frac2{\sqrt5} & 0\\
+\frac2{\sqrt5} & \frac1{\sqrt5} & 0\\
+0&0&1
+\end{bmatrix},
+\qquad X_1^\top X_1=I.
+\]
+则
+\[
+C:=X_1^\top A_1X_1=
+\begin{bmatrix}
+1 & -\frac{367}{2} & \frac{23\sqrt5}{10}\\
+0 & \frac{11}{2} & -\frac{\sqrt5}{10}\\
+0 & \frac{53\sqrt5}{2} & -\frac{3}{2}
+\end{bmatrix}.
+\]
+
+把 $X_1$ 嵌入为 $Q_1=\operatorname{diag}(1,X_1)$，则
+\[
+B_1:=Q_1^\top BQ_1=
+\begin{bmatrix}
+1 & -\frac{2}{\sqrt5} & \frac{893\sqrt5}{10} & -\frac{13}{2}\\
+0 & 1 & -\frac{367}{2} & \frac{23\sqrt5}{10}\\
+0 & 0 & \frac{11}{2} & -\frac{\sqrt5}{10}\\
+0 & 0 & \frac{53\sqrt5}{2} & -\frac{3}{2}
+\end{bmatrix}.
+\]
+
+最后把右下角 $2\times2$ 块
+\[
+M=\begin{bmatrix}
+\frac{11}{2} & -\frac{\sqrt5}{10}\\
+\frac{53\sqrt5}{2} & -\frac{3}{2}
+\end{bmatrix}
+\]
+在 $\C$ 上对角化。取
+\[
+P=
+\begin{bmatrix}
+\sqrt5 & \sqrt5\\
+35-10\ii & 35+10\ii
+\end{bmatrix},
+\]
+可验证
+\[
+P^{-1}MP=\operatorname{diag}(2+\ii,2-\ii).
+\]
+
+设 $Q_2=\operatorname{diag}(1,1,P)$，并令
+\[
+X:=X_0Q_1Q_2,\qquad T:=Q_2^{-1}B_1Q_2.
+\]
+于是
+\[
+A=XTX^{-1},
+\]
+其中
+\[
+T=
+\begin{bmatrix}
+1 & -\frac2{\sqrt5} & 219+65\ii & 219-65\ii\\
+0 & 1 & -(103+23\ii)\sqrt5 & -(103-23\ii)\sqrt5\\
+0 & 0 & 2+\ii & 0\\
+0 & 0 & 0 & 2-\ii
+\end{bmatrix}
+\]
+是上三角矩阵。且 $X$ 是三个可逆矩阵的乘积，所以 $X$ 非奇异。
 \end{solution}
 \end{problem}
 
@@ -72,7 +347,18 @@ A = XTX^{-1}.
 此处的积分路径沿单位圆逆时针方向。
 
 \begin{solution}
-% TODO: 在此填写解答。
+令$z=\ee^{\ii\theta}$，$0\le\theta\le2\pi$，则
+\[
+\overline z=\ee^{-\ii\theta},\qquad
+\dd z=\ii\ee^{\ii\theta}\dd\theta.
+\]
+因此
+\[
+\oint_{|z|=1}\overline z\,\dd z
+=\int_0^{2\pi}\ee^{-\ii\theta}\,\ii\ee^{\ii\theta}\,\dd\theta
+=\int_0^{2\pi}\ii\,\dd\theta
+=2\pi\ii.
+\]
 \end{solution}
 \end{problem}
 

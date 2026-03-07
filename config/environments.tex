@@ -10,8 +10,23 @@
 }
 
 \newenvironment{solution}{%
-  \par\smallskip
-  \noindent\textbf{Solution：}\par
-}{%
   \par\medskip
+  \begingroup
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{0.55em}
+  \noindent{\large\bfseries Solution：}\par\smallskip
+  \ignorespaces
+}{%
+  \par
+  \endgroup
+  \medskip
+}
+
+\newenvironment{solnote}{%
+  \par\smallskip
+  \begin{quote}
+  \small\itshape\textbf{注：}\ignorespaces
+}{%
+  \end{quote}
+  \smallskip
 }

@@ -5,4 +5,7 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.xdv
 *.pdf
+
+.vscode/
