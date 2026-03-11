@@ -2,6 +2,7 @@
 \phantomsection
 \addcontentsline{toc}{section}{2026 年 3 月 2 日作业}
 \noindent\textbf{截止时间：2026 年 3 月 9 日 13:30}
+\setcounter{problem}{0}
 
 \begin{problem}
 设 $m$ 和 $n$ 为给定的正整数，$\omega = \exp(2\pi \ii / m)$。证明：对任何 $A, B \in \C^{n\times n}$ 都有
@@ -201,7 +202,9 @@ A = XTX^{-1}.
 \begin{solnote}
 笨人在做题的时候看错了，以为 $X$ 一定要是正交阵；
 但实际上 $X$ 只要可逆就行了，比起正交阵条件会宽一点，过程也会简单一点（但说实话还是很恶心）。
-不过我并不打算改了，所以你们会看到分解前两个矩阵的时候我还是做了正交化。
+不过我并不打算改了，所以你们会看到分解前两个矩阵的时候我还是做了正交化。另外，虽然本题有更简单的做法，但我们还是复现一下邵老师的思路。
+
+萨摩耶你下次能不能出点正常的题？
 \end{solnote}
 
 先对 $A-\lambda I$ 做列变换 $C_1\leftarrow C_1+C_2+C_3+C_4$：

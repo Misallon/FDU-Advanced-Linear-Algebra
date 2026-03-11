@@ -1,0 +1,365 @@
+\section*{2026 年 3 月 9 日作业}
+\phantomsection
+\addcontentsline{toc}{section}{2026 年 3 月 9 日作业}
+\noindent\textbf{截止时间：2026 年 3 月 16 日 13:30}
+\setcounter{problem}{0}
+
+\begin{problem}
+已知
+\[
+A=
+\begin{bmatrix}
+2 & -3\\
+3 & 2
+\end{bmatrix}.
+\]
+求 $\cos A$ 和 $\sin A$.
+\begin{solution}
+容易知道
+$
+A=\begin{bmatrix}2&-3\\3&2\end{bmatrix}
+$
+是复数 $z=2+3\ii$ 的矩阵表示。定义
+$
+J=\begin{bmatrix}0&-1\\1&0\end{bmatrix},
+$
+则
+$
+A=2I+3J,
+$
+它与 $z=2+3\ii$ 是一个代数同构。
+
+先计算
+\[
+\cos(2+3\ii)=\cos2\cosh3-\ii\sin2\sinh3.
+\]
+对应到矩阵，
+\[
+\cos A=\cos(2I+3J)=\cos2\cosh3\,I-\sin2\sinh3\,J
+=\begin{bmatrix}
+\cos2\cosh3 & \sin2\sinh3\\
+-\sin2\sinh3 & \cos2\cosh3
+\end{bmatrix}.
+\]
+
+同理，
+\[
+\sin A
+=\begin{bmatrix}
+\sin2\cosh3 & -\cos2\sinh3\\
+\cos2\sinh3 & \sin2\cosh3
+\end{bmatrix}.
+\]
+\end{solution}
+\end{problem}
+
+\begin{problem}
+记 $z=x+\ii y$，$x,y\in\R$。关于复变量 $z$ 的函数 $f$ 可以视为关于独立实变量 $x,y$ 的二元函数，而 $x,y$ 与 $z,\bar z$ 可以互相线性表示，因此函数 $f$ 也可从形式上视为关于独立变量 $z,\bar z$ 的二元函数。证明：在这一意义下 Cauchy-Riemann 方程可表示为
+\(
+\partial f / \partial \bar{z} =0.
+\)
+\begin{solution}
+设
+\[
+f(z)=u(x,y)+\ii v(x,y).
+\]
+将 $f$ 视为 $(z,\bar z)$ 的二元函数，则
+\[
+\frac{\partial f}{\partial\bar z}
+=\frac{\partial f}{\partial x}\frac{\partial x}{\partial\bar z}
++\frac{\partial f}{\partial y}\frac{\partial y}{\partial\bar z}.
+\]
+
+由
+\[
+\begin{cases}
+z=x+\ii y,\\
+\bar z=x-\ii y,
+\end{cases}
+\quad\Longrightarrow\quad
+\begin{cases}
+x=\dfrac{z+\bar z}{2},\\[2mm]
+y=\dfrac{z-\bar z}{2\ii},
+\end{cases}
+\]
+得
+\[
+\frac{\partial x}{\partial\bar z}=\frac12,\qquad
+\frac{\partial y}{\partial\bar z}=-\frac1{2\ii}=\frac{\ii}{2}.
+\]
+
+故
+\begin{align*}
+\frac{\partial f}{\partial\bar z}
+&=\frac12\frac{\partial f}{\partial x}
++\frac{\ii}{2}\frac{\partial f}{\partial y}\\
+&=\frac12(u_x+\ii v_x)+\frac{\ii}{2}(u_y+\ii v_y)\\
+&=\frac12(u_x-v_y)+\frac{\ii}{2}(v_x+u_y).
+\end{align*}
+在 Cauchy-Riemann 方程
+\[
+u_x=v_y,\qquad u_y=-v_x
+\]
+下，上式即为 $0$，故 $\partial f/\partial\bar z=0$。
+\end{solution}
+\end{problem}
+
+\begin{problem}
+设 $m,n$ 为正整数，给定 $A\in\R^{m\times n}$。定义 $\R^n\to\R^m$ 的映射
+\[
+f(x)=Axx^\top x.
+\]
+求 $\partial f/\partial x$.
+\begin{solution}
+对 $x$ 做微分：
+\begin{align*}
+\dd f
+&=\dd(x^\top x\,Ax)\\
+&=\dd(x^\top x)\,Ax+x^\top x\,\dd(Ax)\\
+&=2x^\top\dd x\,Ax+x^\top x\,A\,\dd x\\
+&=2Axx^\top\dd x+x^\top x\,A\,\dd x\\
+&=\bigl(2Axx^\top+x^\top x\,A\bigr)\dd x.
+\end{align*}
+故
+\[
+\frac{\partial f}{\partial x}=2Axx^\top+x^\top x\,A.
+\]
+\end{solution}
+\end{problem}
+
+\begin{problem}
+设 $m,n$ 为正整数且 $m\ge n$，$A\in\R^{m\times n}$ 是给定的列满秩矩阵，$b\in\R^m$ 是给定的向量。证明：$\R^n$ 上的函数
+\(
+f(x)=(b-Ax)^\top(b-Ax)
+\)
+的最小值在
+\(
+x=(A^\top A)^{-1}A^\top b
+\)
+处取到.
+\begin{solution}
+\textbf{证法一：}
+\begin{align*}
+    f(x)&=(b^\top-x^\top A^\top)(b-Ax) \\
+&=b^\top b-x^\top A^\top b-b^\top Ax+x^\top A^\top Ax \\
+&=b^\top b-2b^\top Ax+x^\top A^\top Ax.
+\end{align*}
+
+这里因为 $x^\top A^\top b$ 是标量，所以可以取转置 $b^\top Ax$. 
+
+因此
+\[
+\frac{\partial f}{\partial x}
+=-2A^\top b+2A^\top Ax,
+\]
+所以在
+\[
+x^\ast=(A^\top A)^{-1}A^\top b
+\quad(\text{因为 $A$ 列满秩})
+\]
+处有驻点。又
+\[
+\frac{\partial^2 f}{\partial x^2}=2A^\top A\succ0
+\quad(\text{同样因为$A$ 列满秩}),
+\]
+故 $f(x)$ 严格凸，最小值存在且唯一，于是 $x^\ast$ 即唯一最小值点。
+
+\textbf{证法二：}将 $b$ 分解为落在 $A$ 的像空间上的部分 $b_1$ 与垂直部分 $b_2$：
+\[
+b=b_1+b_2,\qquad b_1\in\mathcal{R}(A),\ b_2\in\mathcal{R}(A)^\perp.
+\]
+
+从直观上而言，
+\[
+(b-Ax)^\top(b-Ax)=\|b-Ax\|_2^2
+\]
+就是 $b$ 到 $\mathcal{R}(A)$ 的距离平方，其最小值在 $b$ 在 $\mathcal{R}(A)$ 上的投影点处取到.
+
+此时有 $b_1 = Ax$,\quad $b_2 = b - Ax \perp \mathcal{R}(A)$.
+
+即：
+
+\[
+A^\top (b - Ax) = 0 \Leftrightarrow x=(A^\top A)^{-1}A^\top b.
+\]
+
+\end{solution}
+\end{problem}
+
+\begin{problem}
+构造非奇异上三角矩阵 $P$ 使得
+\[
+P^{-1}
+\begin{bmatrix}
+1 & 1 & 5 & 6\\
+2 & 1 & 7 & 8\\
+0 & 0 & 2 & 3\\
+0 & 0 & 0 & 4
+\end{bmatrix}
+P=
+\begin{bmatrix}
+1 & 1 & 0 & 0\\
+2 & 1 & 0 & 0\\
+0 & 0 & 2 & 0\\
+0 & 0 & 0 & 4
+\end{bmatrix}.
+\]
+\begin{solution}
+设
+\[
+P=
+\left[
+\begin{array}{c|c}
+I&A\\ \hline
+0&B
+\end{array}
+\right],
+\]
+其中 $A,B\in\R^{2\times2}$。题设等价于
+\[
+\left[
+\begin{array}{cc|cc}
+1&1&5&6\\
+2&1&7&8\\ \hline
+0&0&2&3\\
+0&0&0&4
+\end{array}
+\right]
+\left[
+\begin{array}{c|c}
+I&A\\ \hline
+0&B
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c|c}
+I&A\\ \hline
+0&B
+\end{array}
+\right]
+\left[
+\begin{array}{cc|cc}
+1&1&0&0\\
+2&1&0&0\\ \hline
+0&0&2&0\\
+0&0&0&4
+\end{array}
+\right].
+\]
+按分块乘法得到
+\begin{align}
+\begin{bmatrix}1&1\\2&1\end{bmatrix}A+\begin{bmatrix}5&6\\7&8\end{bmatrix}B
+&=A\begin{bmatrix}2&0\\0&4\end{bmatrix},\tag{1}\\
+\begin{bmatrix}2&3\\0&4\end{bmatrix}B
+&=B\begin{bmatrix}2&0\\0&4\end{bmatrix}. \tag{2}
+\end{align}
+
+对 (2)，有
+\[
+\operatorname{spec}\!\begin{bmatrix}2&3\\0&4\end{bmatrix}
+=\operatorname{spec}\!\begin{bmatrix}2&0\\0&4\end{bmatrix},
+\]
+所以有无穷多组解，取其中一组
+\[
+B=\begin{bmatrix}1&3\\0&2\end{bmatrix}.
+\]
+
+对 (1)，由于
+\[
+\operatorname{spec}\!\begin{bmatrix}1&1\\2&1\end{bmatrix}
+\cap
+\operatorname{spec}\!\begin{bmatrix}2&0\\0&4\end{bmatrix}
+=\varnothing,
+\]
+故解唯一。解得
+\[
+A=
+\begin{bmatrix}
+-12&\dfrac{118}{7}\\
+-17&\dfrac{165}{7}
+\end{bmatrix}.
+\]
+
+因此可取
+\[
+P=
+\begin{bmatrix}
+1&0&-12&\dfrac{118}{7}\\
+0&1&-17&\dfrac{165}{7}\\
+0&0&1&3\\
+0&0&0&2
+\end{bmatrix},
+\]
+它是非奇异上三角矩阵，并满足题设关系。
+\end{solution}
+\end{problem}
+
+\begin{problem}[选做]
+设 $n$ 为给定的正整数，并记
+\(
+\mathcal{D}_n=\{X\in\R^{n\times n}:\det(X)>0\}.
+\)
+在 $\mathcal{D}_n$ 上定义函数
+\(
+f(X)=\ln\det(X),
+\)
+求 $\partial f/\partial X$.
+\begin{solution}
+这是一个复合函数。令
+\[
+z=\ln u,\qquad u=\det(X).
+\]
+则
+\[
+\dd z=\dd(\ln u)=\frac1u\,\dd u=\frac1u\,\dd(\det X).
+\]
+
+又因为行列式可按行展开， $\dd (\det (X)) = x_{i1}A_{i1} + x_i2A_{i2} + \ldots + x_{in}A_{in}$,
+
+因此
+\(
+\dd(\det (X))
+=
+\begin{bmatrix}
+A_{11}&A_{21}&\cdots&A_{n1}\\
+A_{12}&A_{22}&\cdots&A_{n2}\\
+\vdots&\vdots&\ddots&\vdots\\
+A_{1n}&A_{2n}&\cdots&A_{nn}
+\end{bmatrix} \dd(X)
+=\operatorname{adj}(X) \dd(X)
+=\det(X)X^{-1} \dd(X).
+\)
+
+于是
+\[
+\dd z
+=\frac1{\det(X)}\,\det(X)X^{-1}\dd X
+=X^{-1}\dd X.
+\]
+
+因此
+\[
+\frac{\partial f}{\partial X}=X^{-\top}.
+\]
+\end{solution}
+\end{problem}
+
+\begin{problem}[选做]
+考察函数
+\[
+f(\lambda)=
+\begin{cases}
+\exp(-\lambda^{-4}), & \lambda\ne0,\\
+0, & \lambda=0.
+\end{cases}
+\]
+证明：$f$ 不是解析函数，但在复平面上处处满足 Cauchy-Riemann 方程.
+\end{problem}
+
+\begin{problem}[选做]
+构造次数最低的一元有理系数非零多项式 $p(\cdot)$，使得
+\[
+p(\sqrt2+\sqrt3+\sqrt6)=0.
+\]
+\end{problem}
