@@ -53,6 +53,19 @@ $
 \end{solution}
 \end{problem}
 
+\begin{solnote}
+    其实也可以使用 Cayley–Hamilton theorem,或者说将矩阵 $A$ 相似对角化:
+    \[
+        A = P^{-1} \Lambda P,
+    \]
+    从而 \[f(A) = P^{-1}\begin{bmatrix}
+        f(\lambda_1) & \\
+         & f(\lambda_2)
+    \end{bmatrix}P.\]
+
+    但我还是认为,利用 $A$ 与复数的同构性质是最方便的,也是最快的.
+\end{solnote}
+
 \begin{problem}
 记 $z=x+\ii y$，$x,y\in\R$。关于复变量 $z$ 的函数 $f$ 可以视为关于独立实变量 $x,y$ 的二元函数，而 $x,y$ 与 $z,\bar z$ 可以互相线性表示，因此函数 $f$ 也可从形式上视为关于独立变量 $z,\bar z$ 的二元函数。证明：在这一意义下 Cauchy-Riemann 方程可表示为
 \(
