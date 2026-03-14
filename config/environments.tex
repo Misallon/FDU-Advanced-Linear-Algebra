@@ -30,3 +30,43 @@
   \end{quote}
   \smallskip
 }
+
+% Indented theorem-like environments.
+\newtheoremstyle{indentedplain}%
+  {0.6\baselineskip}%
+  {0.6\baselineskip}%
+  {\itshape}%
+  {2em}%缩进宽度
+  {\bfseries}%
+  {.}%
+  {0.5em}%
+  {}
+
+\theoremstyle{indentedplain}
+\newtheorem{lemma}{Lemma}[section]
+
+\newtheorem{sollemma}{Lemma}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{%
+  \par
+  \pushQED{\qed}%
+  \normalfont
+  \topsep6\p@\@plus6\p@\relax
+  \list{}{%
+    \leftmargin=2em%缩进宽度
+    \rightmargin=0pt
+    \labelwidth=0pt
+    \labelsep=0.5em
+    \listparindent=\parindent
+    \itemindent=0pt
+  }%
+  \item[\hskip\labelsep\bfseries #1\@addpunct{.}]%
+  \itshape
+  \ignorespaces
+}{%
+  \popQED\endlist\@endpefalse
+}
+\makeatother
+
+\newtheorem*{lemma*}{Lemma}

@@ -124,6 +124,25 @@ f(x)=Axx^\top x.
 \]
 求 $\partial f/\partial x$.
 \begin{solution}
+
+\begin{solnote}
+    矩阵求导的结果有两种不同的布局方式:分子布局(numerator layout)和分母布局(denominator layout).这里我们采用分子布局:
+
+对于向量值函数 $f:\mathbb R^n\to\mathbb R^m$，定义
+\[
+\frac{\partial f}{\partial x}\in\mathbb R^{n\times m},
+\qquad
+\left(\frac{\partial f}{\partial x}\right)_{ij}
+=
+\frac{\partial f_j}{\partial x_i},
+\]
+并满足微分关系
+\[
+\dd f=\left(\frac{\partial f}{\partial x}\right)^\top \dd x.
+\]
+该布局下的 $\dfrac{\partial f}{\partial x}$ 等于通常 Jacobian 矩阵的转置。
+\end{solnote}
+
 对 $x$ 做微分：
 \begin{align*}
 \dd f
@@ -135,9 +154,12 @@ f(x)=Axx^\top x.
 \end{align*}
 故
 \[
-\frac{\partial f}{\partial x}=2Axx^\top+x^\top x\,A.
+\frac{\partial f}{\partial x}=(2Axx^\top+x^\top xA)^\top = 2xx^\top A^\top+(x^\top x)A^\top.
 \]
 \end{solution}
+
+
+
 \end{problem}
 
 \begin{problem}
@@ -289,8 +311,8 @@ B=\begin{bmatrix}1&3\\0&2\end{bmatrix}.
 \[
 A=
 \begin{bmatrix}
--12&\dfrac{118}{7}\\
--17&\dfrac{165}{7}
+-12&\frac{118}{7}\\
+-17&\frac{165}{7}
 \end{bmatrix}.
 \]
 
@@ -298,8 +320,8 @@ A=
 \[
 P=
 \begin{bmatrix}
-1&0&-12&\dfrac{118}{7}\\
-0&1&-17&\dfrac{165}{7}\\
+1&0&-12&\frac{118}{7}\\
+0&1&-17&\frac{165}{7}\\
 0&0&1&3\\
 0&0&0&2
 \end{bmatrix},
@@ -319,6 +341,9 @@ f(X)=\ln\det(X),
 \)
 求 $\partial f/\partial X$.
 \begin{solution}
+
+\textbf{解法一:}
+
 这是一个复合函数。令
 \[
 z=\ln u,\qquad u=\det(X).
@@ -355,6 +380,13 @@ A_{1n}&A_{2n}&\cdots&A_{nn}
 \[
 \frac{\partial f}{\partial X}=X^{-\top}.
 \]
+
+\textbf{解法二:}
+
+这个解法来自郦旭东老师的\textit{最优化方法(H)}课.
+
+
+
 \end{solution}
 \end{problem}
 
@@ -371,8 +403,161 @@ f(\lambda)=
 \end{problem}
 
 \begin{problem}[选做]
-构造次数最低的一元有理系数非零多项式 $p(\cdot)$，使得
+构造次数最低的一元有理系数非零多项式 $p(\cdot)$,使得
 \[
 p(\sqrt2+\sqrt3+\sqrt6)=0.
 \]
+
+\begin{solution}
+    \begin{sollemma}
+        设 $A\in\mathbb C^{n\times n}$, $B\in\mathbb C^{m\times m}$. 则
+        \begin{gather*}
+            \sigma(A \otimes I_m + I_n \otimes B)
+            =
+            \{\,\lambda+\mu:\lambda\in\sigma(A),\ \mu\in\sigma(B)\,\}.
+        \end{gather*}
+
+    \end{sollemma}
+
+    \begin{proof}[Proof]
+        由 Schur 分解, 存在酉矩阵 $P_1\in\mathbb C^{n\times n}$, $P_2\in\mathbb C^{m\times m}$, 使得
+        \[
+            A=P_1^*T_1P_1,\qquad B=P_2^*T_2P_2,
+        \]
+        其中 $T_1,T_2$ 都是上三角矩阵, 且其对角元分别正好是 $\sigma(A),\sigma(B)$ 中的特征值.
+        因此
+        \begin{align*}
+            A \otimes I_m + I_n \otimes B
+            &=(P_1 T_1 P_1^*)\otimes(P_2 I_m P_2^*) + (P_1 I_n P_1^*)\otimes(P_2 T_2 P_2^*) \\
+            &=(P_1 \otimes P_2)(T_1 \otimes I_m + I_n \otimes T_2)(P_1^* \otimes P_2^*) \\
+            &=(P_1 \otimes P_2)(T_1 \otimes I_m + I_n \otimes T_2)(P_1 \otimes P_2)^*
+        \end{align*}
+        所以 $A \otimes I_m + I_n \otimes B$ 与 $T_1 \otimes I_m + I_n \otimes T_2$ 相似, 二者谱相同.
+
+        又因为 $T_1 \otimes I_m + I_n \otimes T_2$ 仍是上三角矩阵, 且其对角元恰为
+        \[
+            \lambda_i+\mu_j
+            \qquad
+            (1\le i\le n,\ 1\le j\le m),
+        \]
+        其中 $\lambda_i\in\sigma(A)$, $\mu_j\in\sigma(B)$. 故
+        \[
+            \sigma(A \otimes I_m + I_n \otimes B)
+            =
+            \{\,\lambda+\mu:\lambda\in\sigma(A),\ \mu\in\sigma(B)\,\}.
+        \]
+    \end{proof}
+
+    \begin{sollemma}
+        设 $A\in\mathbb C^{n\times n}$, $B\in\mathbb C^{m\times m}$. 则
+        \[
+            \sigma(A \otimes B)
+            =
+            \{\,\lambda\mu:\lambda\in\sigma(A),\ \mu\in\sigma(B)\,\}.
+        \]
+    \end{sollemma}
+
+    \begin{proof}[Proof]
+        仍由 Schur 分解, 存在酉矩阵 $P_1\in\mathbb C^{n\times n}$, $P_2\in\mathbb C^{m\times m}$, 使得
+        \[
+            A=P_1^*T_1P_1,\qquad B=P_2^*T_2P_2,
+        \]
+        其中 $T_1,T_2$ 都是上三角矩阵, 且其对角元分别正好是 $\sigma(A),\sigma(B)$ 中的特征值. 于是
+        \[
+            A\otimes B
+            =
+            (P_1\otimes P_2)^*(T_1\otimes T_2)(P_1\otimes P_2).
+        \]
+        所以 $A\otimes B$ 与 $T_1\otimes T_2$ 相似, 二者谱相同.
+
+        又因为 $T_1\otimes T_2$ 仍是上三角矩阵, 且其对角元恰为
+        \[
+            \lambda_i\mu_j
+            \qquad
+            (1\le i\le n,\ 1\le j\le m),
+        \]
+        其中 $\lambda_i\in\sigma(A)$, $\mu_j\in\sigma(B)$. 故
+        \[
+            \sigma(A \otimes B)
+            =
+            \{\,\lambda\mu:\lambda\in\sigma(A),\ \mu\in\sigma(B)\,\}.
+        \]
+    \end{proof}
+
+    \begin{sollemma}
+        设 $A\in\mathbb C^{n\times n}$, $c\in\mathbb C$. 则
+        \[
+            \sigma(A+cI_n)
+            =
+            \{\,\lambda+c:\lambda\in\sigma(A)\,\}.
+        \]
+    \end{sollemma}
+
+    \begin{proof}[Proof]
+        对任意 $x\in\mathbb C$, 有
+        \[
+            \det\bigl(xI_n-(A+cI_n)\bigr)
+            =
+            \det\bigl((x-c)I_n-A\bigr).
+        \]
+        因此 $x\in\sigma(A+cI_n)$ 当且仅当 $x-c\in\sigma(A)$, 也即
+        \[
+            \sigma(A+cI_n)
+            =
+            \{\,\lambda+c:\lambda\in\sigma(A)\,\}.
+        \]
+    \end{proof}
+
+    现在取
+    \[
+        A=\begin{bmatrix}0&2\\1&0\end{bmatrix},
+        \qquad
+        B=\begin{bmatrix}0&3\\1&0\end{bmatrix}.
+    \]
+    则
+    \[
+        \chi_A(x)=x^2-2,\qquad \chi_B(x)=x^2-3,
+    \]
+    从而 $\sqrt2\in\sigma(A)$, $\sqrt3\in\sigma(B)$.
+
+    记
+    \[
+        M=A \otimes I_2 + I_2 \otimes B + A \otimes B.
+    \]
+    注意到
+    \[
+        M=(A+I_2)\otimes(B+I_2)-I_4=
+            \begin{bmatrix}
+                0&3&2&6\\
+                1&0&2&2\\
+                1&3&0&3\\
+                1&1&1&0\\
+            \end{bmatrix}.
+    \]
+    由\textbf{Lemma 1} , \textbf{Lemma 2}和\textbf{Lemma 3}可得
+    \begin{align*}
+        \sigma(M)
+        &=\{\,(\lambda+1)(\mu+1)-1:\lambda\in\sigma(A),\ \mu\in\sigma(B)\,\} \\
+        &=\{\,\lambda + \mu + \lambda \mu:\lambda\in\sigma(A),\ \mu\in\sigma(B)\,\}.
+    \end{align*}
+        
+    特别地, 取 $\lambda=\sqrt2$, $\mu=\sqrt3$, 就得到
+    \[
+        \sqrt2+\sqrt3+\sqrt6\in\sigma(M).
+    \]
+    因而我们构造出了一个有理矩阵 $M$, 使得 $\sqrt2+\sqrt3+\sqrt6$ 是它的特征值.
+
+    将$\sqrt2+\sqrt3+\sqrt6$ 代入 $M$的特征多项式 $p(x) = x^4 - 22x^2 - 48x - 23$ ，发现确实满足 $p(\sqrt2+\sqrt3+\sqrt6)=0$。 
+
+    不过，我们还没有验证 $p(x) = x^4 - 22x^2 - 48x - 23$ 是不是确实是最小整系数多项式。也就是说，存不存在次数小于等于三的多项式 $p'(\cdot )$ ，使得 $p'(\sqrt2+\sqrt3+\sqrt6) = 0$？
+    
+    对于这一点，我们可以尝试证明 $1,\alpha,\alpha^2,\alpha^3(\alpha = \sqrt2+\sqrt3+\sqrt6)$ 是线性无关的（证明过程略）。
+
+    因此，$p(x) = x^4 - 22x^2 - 48x - 23$确实是所求的最小整系数多项式。
+
+    \begin{solnote}
+        感觉其实还是有很多东西没讲清楚...不过\href{https://github.com/Snivallus/FDU-Course-Notes-2024-2025}{Snivallus学长对这道题的解答}\textrm{(Homework2 problem13)}非常详尽,很值得一看.
+    \end{solnote}
+
+\end{solution}
 \end{problem}
