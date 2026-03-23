@@ -3,10 +3,10 @@
 
 \newenvironment{problem}[1][]{%
   \refstepcounter{problem}%
-  \par\medskip
+  \par\bigskip
   \noindent\textbf{\theproblem.}%
   \if\relax\detokenize{#1}\relax\else\ \textbf{（#1）}\fi\ \ignorespaces}{%
-  \par\medskip
+  \par\bigskip
 }
 
 \newenvironment{solution}{%
@@ -45,9 +45,47 @@
 \theoremstyle{indentedplain}
 \newtheorem{lemma}{Lemma}[section]
 
-\newtheorem{sollemma}{Lemma}
+\newcounter{sollemma}
+\renewcommand{\thesollemma}{\arabic{sollemma}}
 
 \makeatletter
+\newenvironment{sollemma}{%
+  \par
+  \refstepcounter{sollemma}%
+  \topsep6\p@\@plus6\p@\relax
+  \list{}{%
+    \leftmargin=2em%缩进宽度
+    \rightmargin=0pt
+    \labelwidth=0pt
+    \labelsep=0.5em
+    \listparindent=\parindent
+    \itemindent=0pt
+  }%
+  \item[\hskip\labelsep\bfseries Lemma \thesollemma.]%
+  \itshape
+  \ignorespaces
+}{%
+  \endlist
+}
+
+\newenvironment{sollemma*}{%
+  \par
+  \topsep6\p@\@plus6\p@\relax
+  \list{}{%
+    \leftmargin=2em%缩进宽度
+    \rightmargin=0pt
+    \labelwidth=0pt
+    \labelsep=0.5em
+    \listparindent=\parindent
+    \itemindent=0pt
+  }%
+  \item[\hskip\labelsep\bfseries Lemma.]%
+  \itshape
+  \ignorespaces
+}{%
+  \endlist
+}
+
 \renewenvironment{proof}[1][\proofname]{%
   \par
   \pushQED{\qed}%
