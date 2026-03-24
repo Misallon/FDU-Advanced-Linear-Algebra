@@ -1,0 +1,196 @@
+\section*{2026 年 3 月 23 日作业}
+\phantomsection
+\addcontentsline{toc}{section}{2026 年 3 月 23 日作业}
+\noindent\textbf{截止时间：2026 年 3 月 30 日 13:30}
+\setcounter{problem}{0}
+\setcounter{sollemma}{0}
+
+\begin{problem}
+若 $\mathcal V$ 是有限维向量空间，$L: \mathcal V \to \mathcal V$ 是线性变换。证明：$L$ 是单射当且仅当 $L$ 是满射。
+    \begin{solution}
+        \textbf{L是单射 $\to$ L是满射：}
+
+        首先证明，对于一组线性无关的向量 $\{v_1,\ldots,v_n\}$，它们的线性映射 $\{Tv_1,\ldots,Tv_n\}$也是线性无关的。
+        
+        使用反证法：
+
+        如果 $\{Tv_1,\ldots,Tv_n\}$ 线性相关，那么存在不全为0的一组 $\alpha_1,\ldots,\alpha_n$ ，使得 $\sum_{i = 1}^{n} \alpha_i Tv_i = 0$；
+        
+        又因为线性性， $\sum_{i = 1}^{n} \alpha_i Tv_i = T \left( \sum_{i = 1}^{n}\alpha_i v_i \right)$，
+
+        所以 $T \left( \sum_{i = 1}^{n}\alpha_i v_i \right) = 0$。
+        
+        但 $L$ 是单射，所以 $Lv = 0$ 当且仅当 $v = 0$；
+
+        因此 $\sum_{i = 1}^{n}\alpha_i v_i = 0$。
+
+        但 $\{v_1,\ldots,v_n\}$ 是线性无关的，所以不存在这样的 $\alpha_1,\ldots,\alpha_n$ 使得 $\sum_{i = 1}^{n}\alpha_i v_i = 0$。
+
+        所以 $\{Tv_1,\ldots,Tv_n\}$ 必定线性无关。
+
+        因此 $\{Tv_1,\ldots,Tv_n\}$ 也可以作为 $\mathcal{V}$ 的一组基（即它们能张成整个 $\mathcal{V}$空间）。
+
+        所以每个 $\mathcal{V}$ 中的向量都可以被映到，即：线性变换 L 是满的。
+
+        \textbf{L 是满射 $\to$ L 是单射：}
+
+        使用反证法：如果 L 不是单射，则存在这样的 $x_1,x_2 \in \mathcal{V}$ ，满足 $x_1 \ne x_2 \ \text{且} \ Lx_1 = Lx_2$。
+
+        设 $x_1 = \sum_{i = 1}^{n} \alpha_i v_i , \  x_2 = \sum_{i = 1}^{n} \beta_i v_i$，
+        那么有 $Lx_1 - Lx_2 = \sum_{i = 1}^{n} (\alpha_i - \beta_i)Tv_i = 0$。
+
+        但是因为 $\{v_1,\ldots,v_n\}$ 是 $\mathcal{V}$ 的一组基，它们线性无关，所以 $\alpha_1 - \beta_1,\ldots,\alpha_n - \beta_n$ 必然不全为0。
+
+        存在不全为0的$\alpha_1 - \beta_1,\ldots,\alpha_n - \beta_n$使得 $\sum_{i = 1}^{n} (\alpha_i - \beta_i)Tv_i = 0$，这符合线性相关的定义，所以 $Lv_1,\ldots,Lv_n$ 线性相关。
+
+        因此 $\dim L < n$ ，因此在像空间 $\mathcal{V}$ 中总有一些元素不能被映到，这样 L 就不能使满射，与题设矛盾。
+
+        因此 L 一定是单射。
+
+        \textbf{综上所述，$L$ 是单射当且仅当 $L$ 是满射。}
+    \end{solution}
+\end{problem}
+
+\begin{problem}
+若 $f: \mathbb{Q} \to \R$ 满足
+\[
+    f(x+y)=f(x)+f(y)
+\]
+对任何 $x,y\in\mathbb{Q}$ 成立，证明：$f$ 是线性映射。
+    \begin{solution}
+        我们只需证明 $\forall a,x \in \Q, \ f(ax) = af(x)$。
+        
+        \romannumeral1. 当 $a \in \Z$ 时，
+
+        由映射的线性性可得 $f(ax) = f(\underbrace{x + \cdots + x}_{\text{总共} a \text{个} x}) = f(x) + f(x) + \cdots + f(x) = af(x)$ ；
+
+        \romannumeral2. 当 $a \in \Q \setminus \Z$ 时， $a$ 一定能被表示成 $a = \dfrac{m}{n}, \ m,n \in \Z$。则
+        \[
+        nf\left( \dfrac{m}{n}x \right) = f(mx) = mf(x),
+        \]
+        即 $f\left( \dfrac{m}{n}x \right) = \dfrac{m}{n}f(x)$。
+
+        所以 $\forall a,x \in \Q, \ f(ax) = af(x)$。又因为加法的线性性已经满足，所以 $f$ 是线性映射。
+    \end{solution}
+\end{problem}
+
+\begin{problem}
+已知 $n$ 是正整数，$\K$ 是一个域。若 $\mathcal V$ 是 $\K$ 上的 $n$ 维向量空间，证明：$\mathcal V$ 上的线性泛函全体 $\mathcal W$ 也构成 $\K$ 上的 $n$ 维向量空间，并且存在 $\mathcal V$ 的基 $e_1,\dots,e_n$ 以及 $\mathcal W$ 的基 $f_1,\dots,f_n$ 使得
+\[
+    f_i(e_j)=
+    \begin{cases}
+        1, & i=j,\\
+        0, & i\ne j.
+    \end{cases}
+\]
+\end{problem}
+
+\begin{problem}
+若 $n_1,n_2,n_3,n_4$ 是正整数，$A\in\C^{n_1\times n_2}$，$B\in\C^{n_2\times n_3}$，$C\in\C^{n_3\times n_4}$，证明 Frobenius 不等式：
+\[
+    \operatorname{rank}(AB)+\operatorname{rank}(BC)\le \operatorname{rank}(ABC)+\operatorname{rank}(B).
+\]
+
+    \begin{solnote}
+        如果用分块矩阵证明的话，有一个比较关键的结论：
+        \[
+            \rank \begin{pmatrix}
+                A & B \\ O & D
+            \end{pmatrix}
+            \ge \rank(A) + \rank(D).
+        \]
+        证明见下方。
+    \end{solnote}
+
+    \begin{solution}
+        \begin{sollemma*}
+            \[
+            \rank \begin{pmatrix}
+                A & B \\ O & D
+            \end{pmatrix}
+            \ge \rank(A) + \rank(D).
+            \]
+        \end{sollemma*}
+
+        \begin{proof}[Proof]
+            设 $A(m \times p), \ B(m \times q), \ D(n \times q), \ r := \rank(A) < p, \ s = \rank(D) < q$，
+            那么 $A$ 一定有 r 个线性无关列，记为 $a_1,a_2, \ldots, a_r$； $D$ 有 s 个线性无关列，记为 $d_1,d_2, \ldots, d_s$。
+            记 $b_j$ 为B中恰好排在 $d_j$ 之上的列，则 $Z$ 中有这样的 $r + s$ 列：
+            \[
+                \begin{pmatrix} a_1 \\ 0 \end{pmatrix},
+                \begin{pmatrix} a_2 \\ 0 \end{pmatrix},
+                \begin{pmatrix} a_r \\ 0 \end{pmatrix},
+                \ldots,
+                \begin{pmatrix} b_1 \\ d_1 \end{pmatrix},
+                \begin{pmatrix} b_2 \\ d_2 \end{pmatrix},
+                \begin{pmatrix} b_s \\ d_s \end{pmatrix},
+            \]
+            这 $r + s$ 个向量一定是线性无关的。
+        \end{proof}
+
+        考虑这样的一个矩阵：
+        \[
+            \begin{pmatrix}
+                AB & B \\ O & BC
+            \end{pmatrix},
+        \]
+        则
+        \[
+            \begin{pmatrix}
+                I & O \\ -C & I
+            \end{pmatrix}
+            \begin{pmatrix}
+                AB & B \\ O & BC
+            \end{pmatrix}
+            \begin{pmatrix}
+                I & O \\ -A & I
+            \end{pmatrix} = 
+            \begin{pmatrix}
+                O & B \\ -ABC & O
+            \end{pmatrix}
+        \]
+
+        所以 $\rank(ABC) + \rank(B) = \rank \begin{pmatrix} O & B \\ -ABC & O \end{pmatrix} = \rank\begin{pmatrix} AB & B \\ O & BC \end{pmatrix}$。
+
+        又因为 $\rank\begin{pmatrix} AB & B \\ O & BC \end{pmatrix} \ge \rank(AB) + \rank(BC)$，
+        
+        所以 $\operatorname{rank}(AB)+\operatorname{rank}(BC)\le \operatorname{rank}(ABC)+\operatorname{rank}(B)$ 。
+    \end{solution}
+\end{problem}
+
+\begin{problem}
+已知
+\[
+    A=
+    \begin{bmatrix}
+        1 & 1 & 1 & 1 & 1\\
+        1 & 2 & 3 & 4 & 5\\
+        1 & 3 & 6 & 10 & 15\\
+        1 & 4 & 10 & 19 & 31\\
+        1 & 5 & 15 & 31 & 53
+    \end{bmatrix}.
+\]
+构造一个对称矩阵 $X$，使得 $AXA=A$ 且 $XAX=X$。
+\end{problem}
+
+\begin{problem}[选做]
+已知 $n$ 是正整数，$A,B\in\C^{n\times n}$ 满足 $AB=BA$。证明：
+\[
+    \operatorname{rank}(A+B)+\operatorname{rank}(AB)\le \operatorname{rank}(A)+\operatorname{rank}(B).
+\]
+\end{problem}
+
+\begin{problem}[选做]
+若 $m,n$ 是正整数，$\C^{m\times n}$ 上的矩阵序列 $\left(A_k\right)_{k=1}^{\infty}$ 收敛，证明：
+\[
+    \operatorname{rank}\left(\lim_{k\to+\infty} A_k\right)\le \liminf_{k\to+\infty}\operatorname{rank}(A_k).
+\]
+\end{problem}
+
+\begin{problem}[选做]
+已知 $n$ 是大于 $1$ 的整数。证明：不存在 $u,v\in\R^n$ 使得
+\[
+    \operatorname{tr}(A)=v^\top Au
+\]
+对一切 $A\in\R^{n\times n}$ 恒成立。
+\end{problem}

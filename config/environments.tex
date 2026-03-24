@@ -1,12 +1,22 @@
 \newcounter{problem}[section]
 \renewcommand{\theproblem}{\arabic{problem}}
+\newlength{\problemsep}
+\setlength{\problemsep}{3.0\baselineskip}
+\newcommand{\problemdivider}{%
+  \par
+  \vspace{\dimexpr\problemsep/2\relax}
+  \hbox to \linewidth{\hfill\raisebox{0pt}[0pt][0pt]{\rule{0.35\linewidth}{0.4pt}}\hfill}%
+  \vspace{\dimexpr\problemsep/2\relax}
+}
 
 \newenvironment{problem}[1][]{%
+  \ifnum\value{problem}>0
+    \problemdivider
+  \fi
   \refstepcounter{problem}%
-  \par\bigskip
   \noindent\textbf{\theproblem.}%
   \if\relax\detokenize{#1}\relax\else\ \textbf{（#1）}\fi\ \ignorespaces}{%
-  \par\bigskip
+  \par
 }
 
 \newenvironment{solution}{%
