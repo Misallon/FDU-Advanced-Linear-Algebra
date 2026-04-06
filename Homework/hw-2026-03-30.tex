@@ -1,0 +1,166 @@
+\section*{2026 年 3 月 30 日作业}
+\phantomsection
+\addcontentsline{toc}{section}{2026 年 3 月 30 日作业}
+\noindent\textbf{截止时间：2026 年 4 月 13 日 13:30}
+\setcounter{problem}{0}
+\setcounter{sollemma}{0}
+
+\begin{problem}
+单位立方体可视为一个无向图。写出该图的邻接矩阵。
+\begin{solution}
+    将单位立方体的 $8$ 个顶点按如下顺序编号：
+    \[
+        (0,0,0),\ (0,0,1),\ (0,1,0),\ (0,1,1),\ (1,0,0),\ (1,0,1),\ (1,1,0),\ (1,1,1).
+    \]
+    
+    则该图的邻接矩阵为
+    \[
+        A=
+        \begin{bmatrix}
+            0 & 1 & 1 & 0 & 1 & 0 & 0 & 0\\
+            1 & 0 & 0 & 1 & 0 & 1 & 0 & 0\\
+            1 & 0 & 0 & 1 & 0 & 0 & 1 & 0\\
+            0 & 1 & 1 & 0 & 0 & 0 & 0 & 1\\
+            1 & 0 & 0 & 0 & 0 & 1 & 1 & 0\\
+            0 & 1 & 0 & 0 & 1 & 0 & 0 & 1\\
+            0 & 0 & 1 & 0 & 1 & 0 & 0 & 1\\
+            0 & 0 & 0 & 1 & 0 & 1 & 1 & 0
+        \end{bmatrix}.
+    \]
+\end{solution}
+\end{problem}
+
+\begin{problem}
+已知 $n$ 是大于 $1$ 的正整数，$p\in(0,1)$。证明：$\|\cdot\|_p$ 不是 $\C^n$ 上的范数。
+\begin{solution}
+    我们只需证明：$\|\cdot\|_p$ 不满足三角不等式。
+
+    当 $p\in(0,1)$ 时，函数
+    \[
+        f(t)=t^p,\qquad t\ge 0
+    \]
+    在 $[0,+\infty)$ 上是凹函数，i.e.对任意 $\lambda\in(0,1)$ 以及任意 $a,b\ge 0$，都有
+    \[
+        (\lambda a+(1-\lambda)b)^p\ge \lambda a^p+(1-\lambda)b^p.
+    \]
+
+    现在设
+    \[
+        x=(x_1,\dots,x_n),\qquad y=(y_1,\dots,y_n)\in\C^n.
+    \]
+    由 $l_p$- 范数的定义有
+    \begin{gather*}
+        \|x\|_p=\left(\sum_{i=1}^{n}|x_i|^p\right)^{1/p},\qquad
+        \|y\|_p=\left(\sum_{i=1}^{n}|y_i|^p\right)^{1/p}, \\
+        \|x+y\|_p=\left(\sum_{i=1}^{n}(|x_i|+|y_i|)^p\right)^{1/p}.
+    \end{gather*}
+
+    对任意 $\lambda\in(0,1)$，由函数 $f(t)$ 的凹性可得
+    \begin{align*}
+        \|x+y\|_p &= \left(\sum_{i=1}^{n}(|x_i|+|y_i|)^p\right)^{1/p} \\
+        &=\left(\sum_{i=1}^{n}\left(\lambda\frac{|x_i|}{\lambda}+(1-\lambda)\frac{|y_i|}{1-\lambda}\right)^p\right)^{1/p} \\
+        &\ge \left(\sum_{i=1}^{n}\left(\lambda\left(\frac{|x_i|}{\lambda}\right)^p+(1-\lambda)\left(\frac{|y_i|}{1-\lambda}\right)^p\right)\right)^{1/p} \\
+        &=\left(\lambda^{1-p}\sum_{i=1}^{n}|x_i|^p+(1-\lambda)^{1-p}\sum_{i=1}^{n}|y_i|^p\right)^{1/p} \\
+        &=\left(\lambda^{1-p}\|x\|_p^p+(1-\lambda)^{1-p}\|y\|_p^p\right)^{1/p}.
+    \end{align*}
+
+    若 $\|x\|_p+\|y\|_p>0$，取
+    \[
+        \lambda=\frac{\|x\|_p}{\|x\|_p+\|y\|_p},
+    \]
+    则
+    \begin{align*}
+        \left(\sum_{i=1}^{n}(|x_i|+|y_i|)^p\right)^{1/p}
+        &\ge \left[\left(\frac{\|x\|_p}{\|x\|_p+\|y\|_p}\right)^{1-p}\|x\|_p^p
+        +\left(\frac{\|y\|_p}{\|x\|_p+\|y\|_p}\right)^{1-p}\|y\|_p^p\right]^{1/p} \\
+        &=\left[(\|x\|_p+\|y\|_p)^{p-1}\|x\|_p+(\|x\|_p+\|y\|_p)^{p-1}\|y\|_p\right]^{1/p} \\
+        &=\left[(\|x\|_p+\|y\|_p)^p\right]^{1/p}
+        =\|x\|_p+\|y\|_p.
+    \end{align*}
+    于是
+    \[
+        \|x+y\|_p>\|x\|_p+\|y\|_p,
+    \]
+    即三角不等式不成立，所以 $\|\cdot\|_p$ 不是 $\C^n$ 上的范数。
+\end{solution}
+\end{problem}
+
+\begin{problem}
+若 $n$ 是大于 $1$ 的正整数，对 $A\in\C^{n\times n}$ 定义
+\[
+    \|A\|_{\max}=\|\operatorname{vec}(A)\|_{\infty}.
+\]
+证明：$\|\cdot\|_{\max}$ 是不相容的范数，并求最小的实数 $\alpha$ 使得 $\alpha\|\cdot\|_{\max}$ 是相容矩阵范数。
+\begin{solution}
+    证明$\|\cdot\|_{\max}$ 是不相容的范数，我们只需取全1矩阵 $A,B$。则 $\|A\|_{\max}=\|B\|_{\max}=1$，但 $\|AB\|_{\max}=n>1$，所以 $\|\cdot\|_{\max}$ 不是相容的范数。
+
+    下面我们求最小的实数 $\alpha$ 使得 $\alpha\|\cdot\|_{\max}$ 是相容矩阵范数。即：
+    \begin{gather*}
+        \alpha\|AB\|_{\max} \le \alpha\|A\|_{\max}\alpha\|B\|_{\max} \\
+        \Leftrightarrow \|AB\|_{\max} \le \alpha\|A\|_{\max}\|B\|_{\max}, \quad \forall A,B\in\C^{n\times n}.
+    \end{gather*}
+
+    按照定义， $\|A\|_{\max}=\|\operatorname{vec}(A)\|_{\infty} = \max{|a_{ij}|}$ 。记 $a_{\max} = \max{|a_{ij}|},b_{\max} = \max{|b_{ij}|}$ 。
+
+    则
+    \[
+        |(AB)_{ij}| = |\sum_{k=1}^{n}a_{ik}b_{kj}| \le n a_{\max} b_{\max},
+    \]所以
+    \[
+        \|AB\|_{\max} \le n a_{\max} b_{\max} = n \|A\|_{\max} \|B\|_{\max}.
+    \]
+
+    另外一方面，我们要证明 $\alpha = n$ 确实就是最小的满足定义的实数。依旧取 $A,B$ 为全1矩阵，则
+    \[
+        \|A\|_{\max}=\|B\|_{\max}=1, \quad \|AB\|_{\max}=n.
+    \]
+
+    若 $\alpha\|\cdot\|_{\max}$ 相容，则必须有 $\|AB\|_{\max} \le \alpha\|A\|_{\max}\|B\|_{\max}$，即 $n \le \alpha$。
+    
+    所以 $\alpha = n$ 是满足定义的实数中最小的一个。
+\end{solution}
+\end{problem}
+
+\begin{problem}
+若 $n$ 是正整数，用 $\|\cdot\|$ 表示 $\C^n$ 上某个向量范数及其诱导的算子范数。证明：对于非奇异矩阵 $A\in\C^{n\times n}$，有
+\[
+    \|A^{-1}\|^{-1}=\min_{\|x\|=1}\|Ax\|.
+\]
+\begin{solution}
+    
+\end{solution}
+\end{problem}
+
+\begin{problem}
+已知 $m,n$ 是正整数，$A_1,A_2,\dots$ 是 $\C^{m\times n}$ 上的序列，$\|\cdot\|_2$ 是 $\C^{m\times n}$ 上的矩阵范数。证明：若级数 $\sum_{k=1}^{\infty}\|A_k\|_2$ 收敛，则矩阵级数 $\sum_{k=1}^{\infty}A_k$ 收敛，且
+\[
+    \left\|\sum_{k=1}^{\infty}A_k\right\|_2\le \sum_{k=1}^{\infty}\|A_k\|_2.
+\]
+\end{problem}
+
+\begin{problem}[选做]
+若 $n$ 是正整数，给定向量 $v\in\C^n$ 以及实数 $p\ge 1$。在约束条件 $\|x\|_p=1$ 下求$f(x)=x^*v+v^*x$的最大值。
+\end{problem}
+
+\begin{problem}[选做]
+若 $m,n$ 是正整数，$A\in\C^{m\times n}$，$p_1,p_2,\dots,p_m\in[1,+\infty]$，满足 $\sum_{i=1}^{m}p_i^{-1}=1$。证明：
+\[
+    \left|\sum_{j=1}^{n}\prod_{i=1}^{m}a_{i,j}\right|
+    \le
+    \prod_{i=1}^{m}\left(\sum_{j=1}^{n}|a_{i,j}|^{p_i}\right)^{1/p_i}.
+\]
+\end{problem}
+
+\begin{problem}[选做]
+设 $p\in[1,+\infty)$。对于闭区间 $[0,1]$ 上的复值连续函数 $f(\cdot)$，定义
+\[
+    \|f\|_p=\left(\int_{0}^{1}|f(\tau)|^p\,\dd \tau\right)^{1/p},
+    \qquad
+    \|f\|_{\infty}=\max_{0\le \tau\le 1}|f(\tau)|.
+\]
+证明：
+\begin{enumerate}
+    \item[(1)] $\|\cdot\|_p$ 满足范数定义中的三条性质。
+    \item[(2)] $\lim_{p\to+\infty}\|f\|_p=\|f\|_{\infty}$。
+\end{enumerate}
+\end{problem}

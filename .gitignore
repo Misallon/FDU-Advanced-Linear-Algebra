@@ -7,5 +7,5 @@
 *.synctex.gz
 *.xdv
 *.pdf
-
+.codex
 .vscode/
