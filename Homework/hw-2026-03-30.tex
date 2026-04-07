@@ -127,19 +127,86 @@
     \|A^{-1}\|^{-1}=\min_{\|x\|=1}\|Ax\|.
 \]
 \begin{solution}
-    
+    由诱导算子范数的定义可得
+    \[
+        \|A^{-1}\|
+        =\max_{x\ne 0}\frac{\|A^{-1}x\|}{\|x\|}.
+    \]
+    因为 $A$ 非奇异，所以映射 $x \mapsto Ax$ 是 $\C^n$ 上的一一对应。因此可以将上式中的 $x$ 替换为 $Ax$，得到 
+    \begin{align*}
+        \|A^{-1}\|
+        =\max_{x\ne0}\frac{\|A^{-1}Ax\|}{\|Ax\|}
+        =\max_{x\ne0}\frac{\|x\|}{\|Ax\|}
+        =\max_{x\ne0}\frac{1}{\dfrac{\|Ax\|}{\|x\|}}
+        =\frac{1}{\min\limits_{x\ne0}\dfrac{\|Ax\|}{\|x\|}}.
+    \end{align*}
+
+    又因为
+    \[
+        \frac{\|Ax\|}{\|x\|}
+        =\left\|A\left(\frac{x}{\|x\|}\right)\right\|,
+    \]
+    且 $\left\|\dfrac{x}{\|x\|}\right\|=1$，所以
+    \[
+        \min_{x\ne0}\frac{\|Ax\|}{\|x\|}
+        =\min_{\|x\|=1}\|Ax\|.
+    \]
+    因此
+    \[
+        \|A^{-1}\|
+        =\frac{1}{\min\limits_{\|x\|=1}\|Ax\|},
+    \]
+    即
+    \[
+        \|A^{-1}\|^{-1}=\min_{\|x\|=1}\|Ax\|.
+    \]
 \end{solution}
 \end{problem}
 
 \begin{problem}
 已知 $m,n$ 是正整数，$A_1,A_2,\dots$ 是 $\C^{m\times n}$ 上的序列，$\|\cdot\|_2$ 是 $\C^{m\times n}$ 上的矩阵范数。证明：若级数 $\sum_{k=1}^{\infty}\|A_k\|_2$ 收敛，则矩阵级数 $\sum_{k=1}^{\infty}A_k$ 收敛，且
 \[
-    \left\|\sum_{k=1}^{\infty}A_k\right\|_2\le \sum_{k=1}^{\infty}\|A_k\|_2.
+    \left\|\sum_{k=1}^{\infty}A_k\right\|_2 \le \sum_{k=1}^{\infty}\|A_k\|_2.
 \]
+\begin{solution}
+    \textbf{先证明矩阵级数 $\sum_{k=1}^{\infty}A_k$ 收敛：}
+
+    因为级数 $\sum_{k=1}^{\infty}\|A_k\|_2$ 是收敛的，所以 $\forall \epsilon > 0$，存在 $N \in \mathbb{N}$，使得
+    \[
+        \sum_{k=n+1}^{m}\|A_k\|_2 < \epsilon, \quad \forall q > p \ge N.
+    \]
+    又由范数的三角不等式得
+    \[
+        \left\|\sum_{k=p+1}^{q}A_k\right\|_2 \le \sum_{k=p+1}^{q}\|A_k\|_2 < \epsilon, \quad \forall q > p \ge N.
+    \]
+    因此，矩阵级数 $\left\|\sum_{k=1}^{\infty}A_k\right\|_2$ 的部分和序列 $\left\{\sum_{k=1}^{N}A_k\right\}_{N=1}^{\infty}$ 是 $\C^{m \times n}$ 上的 Cauchy 列。
+
+    又因为 $\C^{m \times n}$ 是有限维赋范空间，而有限维赋范空间是完备的，所以 $\left\|\sum_{k=1}^{\infty}A_k\right\|_2$ 必定收敛。
+
+    \textbf{下面我们证明 $\left\|\sum_{k=1}^{\infty}A_k\right\|_2 \le \sum_{k=1}^{\infty}\|A_k\|_2$ 。}
+
+    由部分和的三角不等式得
+    \[
+        \left\|\sum_{k=1}^{N}A_k\right\|_2 \le \sum_{k=1}^{N}\|A_k\|_2, \quad \forall N \in \mathbb{N}.
+    \]
+    所以
+    \[
+        \lim_{N \to \infty} \left\|\sum_{k=1}^{N}A_k\right\|_2 \le \lim_{N \to \infty} \sum_{k=1}^{N}\|A_k\|_2 = \sum_{k = 1}^{\infty}\|A_k\|_2.
+    \]
+    又由矩阵范数的连续性得
+    \[
+        \lim_{N \to \infty} \left\|\sum_{k=1}^{N}A_k\right\|_2 = \left\| \lim_{N \to \infty}\sum_{k=1}^{N}A_k\right\|_2 = \left\|\sum_{k=1}^{\infty}A_k\right\|_2.
+    \]
+    
+    因此 $\left\|\sum_{k=1}^{\infty}A_k\right\|_2 \le \sum_{k=1}^{\infty}\|A_k\|_2$。
+\end{solution}
 \end{problem}
 
 \begin{problem}[选做]
 若 $n$ 是正整数，给定向量 $v\in\C^n$ 以及实数 $p\ge 1$。在约束条件 $\|x\|_p=1$ 下求$f(x)=x^*v+v^*x$的最大值。
+\begin{solution}
+    
+\end{solution}
 \end{problem}
 
 \begin{problem}[选做]
@@ -149,6 +216,9 @@
     \le
     \prod_{i=1}^{m}\left(\sum_{j=1}^{n}|a_{i,j}|^{p_i}\right)^{1/p_i}.
 \]
+\begin{solution}
+    
+\end{solution}
 \end{problem}
 
 \begin{problem}[选做]
