@@ -1,0 +1,288 @@
+\section*{2026 年 4 月 13 日作业}
+\phantomsection
+\addcontentsline{toc}{section}{2026 年 4 月 13 日作业}
+\noindent\textbf{截止时间：2026 年 4 月 20 日 13:30}
+\setcounter{problem}{0}
+\setcounter{sollemma}{0}
+
+\begin{problem}
+已知 $m,n$ 是正整数,$A\in\C^{m\times n}$,$B$ 是 $A$ 的一个子矩阵.证明：当 $1\le p\le\infty$ 时 $\|B\|_p\le\|A\|_p$.
+\begin{solution}
+    设 $B$ 是由 $A$ 的第 $i_1,\dots,i_{r}$ 行和第 $j_1,\dots,j_{s}$ 列组成的子矩阵,其中 $r\le m$,$s\le n$.定义 $P \in \C^{r \times m}$ 和 $Q \in \C^{n \times s}$ 满足 $P_{k,i_k} = 1$ 对 $k=1,\dots,r$,其余元素为 $0$；$Q_{j_l,l} = 1$ 对 $l=1,\dots,s$,其余元素为 $0$.则 $B = P A Q$.
+
+    由于 $p$- 范数是相容的,所以 $\|B\|_p = \|P A Q\|_p \le \|P\|_p \|A\|_p \|Q\|_p$.因此我们只需证明 $\|P\|_p \le 1$ 和 $\|Q\|_p \le 1$.
+
+    对于任意的 $x \in \C^m$,
+    \begin{itemize}
+        \item 当 $1\le p<\infty$ 时,
+        \[
+            \|Px\|_p^p=\sum_{\alpha=1}^{r}|x_{i_\alpha}|^p
+            \le
+            \sum_{k=1}^{m}|x_k|^p
+            =
+            \|x\|_p^p,
+        \]
+        因而
+        \[
+            \|Px\|_p\le \|x\|_p.
+        \]
+
+        \item 当 $p=\infty$ 时,
+        \[
+            \|Px\|_{\infty}
+            =
+            \max_{1\le\alpha\le r}|x_{i_\alpha}|
+            \le
+            \max_{1\le k\le m}|x_k|
+            =
+            \|x\|_{\infty}.
+        \]
+    \end{itemize}
+
+    所以
+    \[
+        \|P\|_p\le 1.
+    \]
+
+    同理,对于任意的 $y\in\C^s$,$Qy$ 只是把 $y$ 嵌入到 $\C^n$ 中,在未选中的位置补零.因此
+    \[
+        \|Qy\|_p=\|y\|_p \Rightarrow \|Q\|_p=1.
+    \]
+    
+    综上,
+    \[
+        \|B\|_p
+        \le
+        \|P\|_p\|A\|_p\|Q\|_p
+        \le
+        \|A\|_p.
+    \]
+    命题得证.
+\end{solution}
+\end{problem}
+
+\begin{problem}
+已知 $m,n$ 是正整数,$x\in\C^m$,$y\in\C^n$.证明：$\|xy^*\|_2=\|xy^*\|_F=\|x\|_2\|y\|_2$.
+\begin{solution}
+    先求 $\|xy^*\|_2$.
+
+    设
+    \[
+        A=xy^*.
+    \]
+    则
+    \begin{align*}
+        A^*A
+        =(xy^*)^*(xy^*)
+        =yx^*xy^*
+        =(x^*x)yy^*
+        =\|x\|_2^2yy^*.
+    \end{align*}
+
+    由矩阵 2- 范数的定义得,$\|xy^*\|_2 = \lambda_{\max}(A^*A) = \lambda_{\max}(\|x\|_2^2yy^*)$.
+    又因为 
+    \[
+        (\|x\|_2^2 yy^*)y = \|x\|_2^2y(y^*y) = \|x\|_2^2\|y\|_2^2y
+    \]
+    
+    所以 $A^*A=\|x\|_2^2yy^*$ 的一个特征值为
+    \[
+        \|x\|_2^2\|y\|_2^2.
+    \]
+
+    又因为 $yy^*$ 的秩为 $1$,所以 $A^*A$ 的非零特征值最多只有一个,因此
+    \[
+        \|xy^*\|_2 = \|x\|_2\|y\|_2.
+    \]
+
+    再求 $\|xy^*\|_F$.设
+    \[
+        x=(x_1,\dots,x_m)^T,\qquad y=(y_1,\dots,y_n)^T.
+    \]
+    则 $xy^*$ 的第 $(i,j)$ 个元素为 $x_i\overline{y_j}$,于是
+    \begin{align*}
+        \|xy^*\|_F^2
+        &=\sum_{i=1}^{m}\sum_{j=1}^{n}|x_i\overline{y_j}|^2 \\
+        &=\sum_{i=1}^{m}\sum_{j=1}^{n}|x_i|^2|y_j|^2 \\
+        &=\left(\sum_{i=1}^{m}|x_i|^2\right)\left(\sum_{j=1}^{n}|y_j|^2\right) \\
+        &=\|x\|_2^2\|y\|_2^2.
+    \end{align*}
+    所以
+    \[
+        \|xy^*\|_F=\|x\|_2\|y\|_2.
+    \]
+
+    综上,
+    \[
+        \|xy^*\|_2=\|xy^*\|_F=\|x\|_2\|y\|_2.
+    \]
+    命题得证.
+\end{solution}
+\end{problem}
+
+\begin{problem}
+若 $A,B$ 是复矩阵,证明：$\|A\otimes B\|_F=\|A\|_F\|B\|_F$.
+\begin{solution}
+    设
+    \[
+        A=(a_{ij})\in\C^{m\times n},\qquad B=(b_{kl})\in\C^{r\times s}.
+    \]
+    则 Kronecker 积 $A\otimes B$ 可写成分块矩阵
+    \[
+        A\otimes B=
+        \begin{bmatrix}
+            a_{11}B & \cdots & a_{1n}B \\
+            \vdots & \ddots & \vdots \\
+            a_{m1}B & \cdots & a_{mn}B
+        \end{bmatrix}.
+    \]
+
+    由 Frobenius 范数的定义,
+    \begin{align*}
+        \|A\otimes B\|_F^2
+        &= \sum_{i=1}^{m}\sum_{j=1}^{n}\|a_{ij}B\|_F^2 \\
+        &= \sum_{i=1}^{m}\sum_{j=1}^{n}\sum_{k=1}^{r}\sum_{l=1}^{s}|a_{ij}b_{kl}|^2 \\
+        &= \sum_{i=1}^{m}\sum_{j=1}^{n}|a_{ij}|^2\sum_{k=1}^{r}\sum_{l=1}^{s}|b_{kl}|^2 \\
+        &= \left(\sum_{i=1}^{m}\sum_{j=1}^{n}|a_{ij}|^2\right)\left(\sum_{k=1}^{r}\sum_{l=1}^{s}|b_{kl}|^2\right) \\
+        &= \|A\|_F^2\|B\|_F^2.
+    \end{align*}
+
+    两边取平方根,得到
+    \[
+        \|A\otimes B\|_F=\|A\|_F\|B\|_F.
+    \]
+    命题得证.
+\end{solution}
+\end{problem}
+
+\begin{problem}
+已知 $m,n$ 为正整数,$A\in\C^{m\times n}$.证明：$\|A\|_2^2\le\|A\|_1\|A\|_{\infty}$.
+
+\textbf{（选做）}若实数 $p,q$ 满足 $p^{-1}+q^{-1}=1$,证明：$\|A\|_2^2\le\|A\|_p\|A\|_q$.
+\begin{solution}
+    由矩阵 2- 范数的定义得 $\|A\|_2^2 = \|A^*A\|_2 = \lambda_{\max}(A^*A)$. 又因为
+    \begin{equation*}\label{eq:hwq4}
+        \lambda_{\max}(A^*A) = \rho(A^*A) \le \|A^*A\| \quad \text{（其中 $\|\cdot\|$ 是任一相容范数）}, \tag{1}
+    \end{equation*}
+    所以 $\|A\|_2^2 \le \|A^*A\|_1 \le \|A^*\|_1\|A\|_1$（由相容范数的性质）. 又因为 $\|A^*\|_1 = \|A\|_{\infty}$,所以
+    \[
+        \|A\|_2^2\le\|A\|_1\|A\|_{\infty}
+    \]
+    得证!
+
+    \textbf{下面证明若实数 $p,q$ 满足 $p^{-1}+q^{-1}=1$,则$\|A\|_2^2$同样$\le\|A\|_p\|A\|_q$：}
+
+    仿照上面的证法,我们只需要证明： $\|A^*\|_q = \|A\|_p$.
+
+    \textbf{证明：}
+
+    由诱导范数的定义得, $\|A\|_p = \max_{\|x\|_p=1} \|Ax\|_p$.
+    由 Hölder 不等式,我们有
+    \[
+        \|Ax\|_p = \sup_{\|y\|_q=1} |y^*Ax|.
+    \]
+    因此,
+    \[
+        \|A\|_p = \sup_{\|x\|_p=1} \sup_{\|y\|_q=1} |y^*Ax| = \sup_{\|y\|_q=1} \sup_{\|x\|_p=1} |(A^*y)^*x|.
+    \]
+    再次利用 Hölder 不等式,得
+    \[
+        \sup_{\|x\|_p=1} |(A^*y)^*x| = \|A^*y\|_q.
+    \]
+    所以 $\|A\|_p = \sup_{\|y\|_q=1} \|A^*y\|_q = \|A^*\|_q$.
+    命题得证.
+
+    因此,再次应用式 \eqref{eq:hwq4},我们有 $\|A\|_2^2 \le \|A^*A\|_p \le \|A^*\|_p\|A\|_p = \|A\|_p\|A\|_q$.
+\end{solution}
+\end{problem}
+
+\begin{problem}
+已知 $n$ 是正整数,$A\in\C^{n\times n}$ 是非奇异矩阵,$\Delta A\in\C^{n\times n}$,$b\in\C^n\setminus\{0\}$,$\Delta b\in\C^n$.若 $\|\cdot\|$ 是算子范数,满足 $\|\Delta A\|<\|A^{-1}\|^{-1}$,证明：
+\[
+    \frac{\|(A+\Delta A)^{-1}(b+\Delta b)-A^{-1}b\|}{\|A^{-1}b\|}
+    \le
+    \frac{\kappa(A)}{1-\kappa(A)\cdot\|\Delta A\|/\|A\|}
+    \left(
+        \frac{\|\Delta A\|}{\|A\|}
+        +
+        \frac{\|\Delta b\|}{\|b\|}
+    \right),
+\]
+其中 $\kappa(A)=\|A\|\|A^{-1}\|$.
+\begin{solution}
+    证明：记 $\tilde{x} = (A+\Delta A)^{-1}(b+\Delta b)$,$x = A^{-1}b$. 则
+    \begin{align*}
+        \tilde{x} - x
+        &= (A+\Delta A)^{-1}(b+\Delta b) - A^{-1}b \\
+        &= [(A+\Delta A)^{-1} - A^{-1}]b + (A+\Delta A)^{-1}\Delta b \\
+        &= [(I + A^{-1}\Delta A)^{-1} - I]A^{-1}b + (I+A^{-1}\Delta A)^{-1}A^{-1}\Delta b. \\
+    \end{align*}
+    记 $E = -A^{-1}\Delta A$,则
+    \[
+        \tilde{x} - x = [(I + E)^{-1} - I]A^{-1}b + (I+E)^{-1}A^{-1}\Delta b.
+    \]
+    又由恒等式 $(I - E)^{-1} - I = E(I - E)^{-1}$,我们有
+    \[
+        \tilde{x} - x = E(I + E)^{-1}A^{-1}b + (I+E)^{-1}A^{-1}\Delta b.
+    \]
+    接下来估计范数：
+    由算子范数的相容性,我们有
+    \[
+        \|\tilde{x} - x\| \le \|(I - E)^{-1}\|(\|EA^{-1}b\| + \|A^{-1}\Delta b\|),
+    \]
+    两边除以 $\|A^{-1}b\|$,有
+    \[
+        \frac{\|\tilde x-x\|}{\|A^{-1}b\|} \le \|(I-E)^{-1}\| \left( \frac{\|EA^{-1}b\|}{\|A^{-1}b\|} + \frac{\|A^{-1}\Delta b\|}{\|A^{-1}b\|} \right).
+    \]
+
+    先估计 $\dfrac{\|EA^{-1}b\|}{\|A^{-1}b\|}$：
+    由算子范数的性质,
+    \[
+        \frac{\|EA^{-1}b\|}{\|A^{-1}b\|} \le \|E\| \le \|A^{-1}\|\|\Delta A\| = \kappa(A)\frac{\|\Delta A\|}{\|A\|}.
+    \]
+
+    再估计 $\dfrac{\|A^{-1}\Delta b\|}{\|A^{-1}b\|}$：
+    \[
+        \frac{\|A^{-1}\Delta b\|}{\|A^{-1}b\|} \le \|A^{-1}\| \frac{\|\Delta b\|}{\|A^{-1}b\|} \le \|A^{-1}\|\|A\|\frac{\|\Delta b\|}{\|b\|} = \kappa(A)\frac{\|\Delta b\|}{\|b\|}.
+    \]
+
+    又因为 $(I-E)^{-1} = 1 + E + E^2 + \cdots$,所以
+    \[
+        \|(I-E)^{-1}\| \le 1+\|E\|+\|E\|^2 + \cdots = \frac{1}{1-\|E\|} \le \frac{1}{1-\kappa(A)\cdot\|\Delta A\|/\|A\|}.
+    \]
+
+    综合三个不等式,我们得到
+    \[
+        \frac{\|\tilde x-x\|}{\|A^{-1}b\|} \le \frac{\kappa(A)}{1-\kappa(A)\cdot\|\Delta A\|/\|A\|} \left( \frac{\|\Delta A\|}{\|A\|} + \frac{\|\Delta b\|}{\|b\|} \right).
+    \]
+\end{solution}
+\end{problem}
+
+\begin{problem}[选做]
+设 $n$ 为正整数.对于任意的 $A=[a_1,\dots,a_n]\in\C^{n\times n}$ 可定义
+\[
+    N_{\infty}(A)=\sum_{j=1}^{n}\|a_j\|_{\infty}.
+\]
+证明：$N_{\infty}(\cdot)$ 是 $\C^{n\times n}$ 上的相容矩阵范数.
+\begin{solution}
+
+\end{solution}
+\end{problem}
+
+\begin{problem}[选做]
+已知 $n$ 是正整数,$A\in\C^{n\times n}$.证明：无穷级数
+\[
+    \sum_{k=0}^{\infty}(A^*)^kA^k
+\]
+收敛的充要条件是 $\rho(A)<1$.
+\begin{solution}
+
+\end{solution}
+\end{problem}
+
+\begin{problem}[选做]
+已知 $m,n$ 是正整数,且 $\min\{m,n\}>1$.证明：$\C^{m\times n}$ 上的 Frobenius 范数不是算子范数,即 $\C^m$ 和 $\C^n$ 上的任何范数都不能诱导出 $\C^{m\times n}$ 上的 Frobenius 范数.
+\begin{solution}
+
+\end{solution}
+\end{problem}
