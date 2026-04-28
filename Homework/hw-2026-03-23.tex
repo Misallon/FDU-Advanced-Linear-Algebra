@@ -1,53 +1,53 @@
 \section*{2026 年 3 月 23 日作业}
 \phantomsection
 \addcontentsline{toc}{section}{2026 年 3 月 23 日作业}
-\noindent\textbf{截止时间：2026 年 3 月 30 日 13:30}
+\noindent\textbf{截止时间:2026 年 3 月 30 日 13:30}
 \setcounter{problem}{0}
 \setcounter{sollemma}{0}
 
 \begin{problem}
-若 $\mathcal V$ 是有限维向量空间，$L: \mathcal V \to \mathcal V$ 是线性变换。证明：$L$ 是单射当且仅当 $L$ 是满射。
+若 $\mathcal V$ 是有限维向量空间,$L: \mathcal V \to \mathcal V$ 是线性变换.证明:$L$ 是单射当且仅当 $L$ 是满射.
     \begin{solution}
-        \textbf{L是单射 $\to$ L是满射：}
+        \textbf{L是单射 $\to$ L是满射:}
 
-        首先证明，对于一组线性无关的向量 $\{v_1,\ldots,v_n\}$，它们的线性映射 $\{Lv_1,\ldots,Lv_n\}$也是线性无关的。
+        首先证明,对于一组线性无关的向量 $\{v_1,\ldots,v_n\}$,它们的线性映射 $\{Lv_1,\ldots,Lv_n\}$也是线性无关的.
         
-        使用反证法：
+        使用反证法:
 
-        如果 $\{Lv_1,\ldots,Lv_n\}$ 线性相关，那么存在不全为0的一组 $\alpha_1,\ldots,\alpha_n$ ，使得 $\sum_{i = 1}^{n} \alpha_i Lv_i = 0$；
+        如果 $\{Lv_1,\ldots,Lv_n\}$ 线性相关,那么存在不全为0的一组 $\alpha_1,\ldots,\alpha_n$ ,使得 $\sum_{i = 1}^{n} \alpha_i Lv_i = 0$；
         
-        又因为线性性， $\sum_{i = 1}^{n} \alpha_i Lv_i = L \left( \sum_{i = 1}^{n}\alpha_i v_i \right)$，
+        又因为线性性, $\sum_{i = 1}^{n} \alpha_i Lv_i = L \left( \sum_{i = 1}^{n}\alpha_i v_i \right)$,
 
-        所以 $L \left( \sum_{i = 1}^{n}\alpha_i v_i \right) = 0$。
+        所以 $L \left( \sum_{i = 1}^{n}\alpha_i v_i \right) = 0$.
         
-        但 $L$ 是单射，所以 $Lv = 0$ 当且仅当 $v = 0$；
+        但 $L$ 是单射,所以 $Lv = 0$ 当且仅当 $v = 0$；
 
-        因此 $\sum_{i = 1}^{n}\alpha_i v_i = 0$。
+        因此 $\sum_{i = 1}^{n}\alpha_i v_i = 0$.
 
-        但 $\{v_1,\ldots,v_n\}$ 是线性无关的，所以不存在这样的 $\alpha_1,\ldots,\alpha_n$ 使得 $\sum_{i = 1}^{n}\alpha_i v_i = 0$。
+        但 $\{v_1,\ldots,v_n\}$ 是线性无关的,所以不存在这样的 $\alpha_1,\ldots,\alpha_n$ 使得 $\sum_{i = 1}^{n}\alpha_i v_i = 0$.
 
-        所以 $\{Lv_1,\ldots,Lv_n\}$ 必定线性无关。
+        所以 $\{Lv_1,\ldots,Lv_n\}$ 必定线性无关.
 
-        因此 $\{Lv_1,\ldots,Lv_n\}$ 也可以作为 $\mathcal{V}$ 的一组基（即它们能张成整个 $\mathcal{V}$空间）。
+        因此 $\{Lv_1,\ldots,Lv_n\}$ 也可以作为 $\mathcal{V}$ 的一组基（即它们能张成整个 $\mathcal{V}$空间）.
 
-        所以每个 $\mathcal{V}$ 中的向量都可以被映到，即：线性变换 L 是满的。
+        所以每个 $\mathcal{V}$ 中的向量都可以被映到,即:线性变换 L 是满的.
 
-        \textbf{L 是满射 $\to$ L 是单射：}
+        \textbf{L 是满射 $\to$ L 是单射:}
 
-        使用反证法：如果 L 不是单射，则存在这样的 $x_1,x_2 \in \mathcal{V}$ ，满足 $x_1 \ne x_2 \ \text{且} \ Lx_1 = Lx_2$。
+        使用反证法:如果 L 不是单射,则存在这样的 $x_1,x_2 \in \mathcal{V}$ ,满足 $x_1 \ne x_2 \ \text{且} \ Lx_1 = Lx_2$.
 
-        设 $x_1 = \sum_{i = 1}^{n} \alpha_i v_i , \  x_2 = \sum_{i = 1}^{n} \beta_i v_i$，
-        那么有 $Lx_1 - Lx_2 = \sum_{i = 1}^{n} (\alpha_i - \beta_i)Lv_i = 0$。
+        设 $x_1 = \sum_{i = 1}^{n} \alpha_i v_i , \  x_2 = \sum_{i = 1}^{n} \beta_i v_i$,
+        那么有 $Lx_1 - Lx_2 = \sum_{i = 1}^{n} (\alpha_i - \beta_i)Lv_i = 0$.
 
-        但是因为 $\{v_1,\ldots,v_n\}$ 是 $\mathcal{V}$ 的一组基，它们线性无关，所以 $\alpha_1 - \beta_1,\ldots,\alpha_n - \beta_n$ 必然不全为0。
+        但是因为 $\{v_1,\ldots,v_n\}$ 是 $\mathcal{V}$ 的一组基,它们线性无关,所以 $\alpha_1 - \beta_1,\ldots,\alpha_n - \beta_n$ 必然不全为0.
 
-        存在不全为0的$\alpha_1 - \beta_1,\ldots,\alpha_n - \beta_n$使得 $\sum_{i = 1}^{n} (\alpha_i - \beta_i)Lv_i = 0$，这符合线性相关的定义，所以 $Lv_1,\ldots,Lv_n$ 线性相关。
+        存在不全为0的$\alpha_1 - \beta_1,\ldots,\alpha_n - \beta_n$使得 $\sum_{i = 1}^{n} (\alpha_i - \beta_i)Lv_i = 0$,这符合线性相关的定义,所以 $Lv_1,\ldots,Lv_n$ 线性相关.
 
-        因此 $\dim L < n$ ，因此在像空间 $\mathcal{V}$ 中总有一些元素不能被映到，这样 L 就不能是满射，与题设矛盾。
+        因此 $\dim L < n$ ,因此在像空间 $\mathcal{V}$ 中总有一些元素不能被映到,这样 L 就不能是满射,与题设矛盾.
 
-        因此 L 一定是单射。
+        因此 L 一定是单射.
 
-        \textbf{综上所述，$L$ 是单射当且仅当 $L$ 是满射。}
+        \textbf{综上所述,$L$ 是单射当且仅当 $L$ 是满射.}
     \end{solution}
 \end{problem}
 
@@ -56,26 +56,26 @@
 \[
     f(x+y)=f(x)+f(y)
 \]
-对任何 $x,y\in\mathbb{Q}$ 成立，证明：$f$ 是线性映射。
+对任何 $x,y\in\mathbb{Q}$ 成立,证明:$f$ 是线性映射.
     \begin{solution}
-        我们只需证明 $\forall a,x \in \Q, \ f(ax) = af(x)$。
+        我们只需证明 $\forall a,x \in \Q, \ f(ax) = af(x)$.
         
-        \romannumeral1. 当 $a \in \Z$ 时，
+        \romannumeral1. 当 $a \in \Z$ 时,
 
         由映射的线性性可得 $f(ax) = f(\underbrace{x + \cdots + x}_{\text{总共} a \text{个} x}) = f(x) + f(x) + \cdots + f(x) = af(x)$ ；
 
-        \romannumeral2. 当 $a \in \Q \setminus \Z$ 时， $a$ 一定能被表示成 $a = \dfrac{m}{n}, \ m,n \in \Z$。则
+        \romannumeral2. 当 $a \in \Q \setminus \Z$ 时, $a$ 一定能被表示成 $a = \dfrac{m}{n}, \ m,n \in \Z$.则
         \[
         nf\left( \dfrac{m}{n}x \right) = f(mx) = mf(x),
         \]
-        即 $f\left( \dfrac{m}{n}x \right) = \dfrac{m}{n}f(x)$。
+        即 $f\left( \dfrac{m}{n}x \right) = \dfrac{m}{n}f(x)$.
 
-        所以 $\forall a,x \in \Q, \ f(ax) = af(x)$。又因为加法的线性性已经满足，所以 $f$ 是线性映射。
+        所以 $\forall a,x \in \Q, \ f(ax) = af(x)$.又因为加法的线性性已经满足,所以 $f$ 是线性映射.
     \end{solution}
 \end{problem}
 
 \begin{problem}
-已知 $n$ 是正整数，$\K$ 是一个域。若 $\mathcal V$ 是 $\K$ 上的 $n$ 维向量空间，证明：$\mathcal V$ 上的线性泛函全体 $\mathcal W$ 也构成 $\K$ 上的 $n$ 维向量空间，并且存在 $\mathcal V$ 的基 $e_1,\dots,e_n$ 以及 $\mathcal W$ 的基 $f_1,\dots,f_n$ 使得
+已知 $n$ 是正整数,$\K$ 是一个域.若 $\mathcal V$ 是 $\K$ 上的 $n$ 维向量空间,证明:$\mathcal V$ 上的线性泛函全体 $\mathcal W$ 也构成 $\K$ 上的 $n$ 维向量空间,并且存在 $\mathcal V$ 的基 $e_1,\dots,e_n$ 以及 $\mathcal W$ 的基 $f_1,\dots,f_n$ 使得
 \[
     f_i(e_j)=
     \begin{cases}
@@ -84,28 +84,28 @@
     \end{cases}
 \]
 \begin{solnote}
-    我们首先要知道： $\mathcal{W}$ 到底是什么？它是 $\mathcal{V}$ 上的线性泛函的全体，也就是说，
+    我们首先要知道: $\mathcal{W}$ 到底是什么?它是 $\mathcal{V}$ 上的线性泛函的全体,也就是说,
     \[
         \mathcal{W} = \{f:\mathcal{V} \mapsto \mathbb{K} | f \text{是线性映射}\}.
     \]
-    所以我们要证明：
+    所以我们要证明:
     \begin{enumerate}
         \item $\forall f_1,f_2 \in \mathcal{W}, \ f_1 + f_2 \in W$；
         \item $\forall f \in \mathcal{W}, \ a \in \K, \ af \in \mathcal{W}$；
-        \item $\dim \mathcal{W} = n$，也就是最多能找到 $n$ 个线性无关的线性泛函 $f_1, \ldots, f_n$。
+        \item $\dim \mathcal{W} = n$,也就是最多能找到 $n$ 个线性无关的线性泛函 $f_1, \ldots, f_n$.
     \end{enumerate}
 \end{solnote}
 \begin{solution}
-    \textbf{先证明：$\mathcal V$ 上的线性泛函全体 $\mathcal W$ 构成 $\K$ 上的向量空间。}
+    \textbf{先证明:$\mathcal V$ 上的线性泛函全体 $\mathcal W$ 构成 $\K$ 上的向量空间.}
     
-    $\forall f_1,f_2 \in \mathcal{W}$，任取 $x \in \mathcal{V}$，有 $(f_1 + f_2)(x) = f_1(x) + f_2(x)$。
-    它也是从 $\mathcal{V}$ 到 $\K$ 的线性映射，所以 $f_1 + f_2 \in \mathcal{W}$；
+    $\forall f_1,f_2 \in \mathcal{W}$,任取 $x \in \mathcal{V}$,有 $(f_1 + f_2)(x) = f_1(x) + f_2(x)$.
+    它也是从 $\mathcal{V}$ 到 $\K$ 的线性映射,所以 $f_1 + f_2 \in \mathcal{W}$；
 
-    同理，容易证明 $\forall f \in \mathcal{W}, \ a \in \K, \ af \in \mathcal{W}$，所以 $\mathcal{W}$ 是一个向量空间；
+    同理,容易证明 $\forall f \in \mathcal{W}, \ a \in \K, \ af \in \mathcal{W}$,所以 $\mathcal{W}$ 是一个向量空间；
 
-    \textbf{接下来证明 $\dim \mathcal{W} = n$。}我们只需取一组特殊的 $f_1, \ldots, f_n$ ，证明它们线性无关，并且 $\forall f \in \mathcal{W}$ 都能由其线性表出。
+    \textbf{接下来证明 $\dim \mathcal{W} = n$.}我们只需取一组特殊的 $f_1, \ldots, f_n$ ,证明它们线性无关,并且 $\forall f \in \mathcal{W}$ 都能由其线性表出.
 
-    取 $\mathcal{V}$ 的一组基 $e_1, \ldots, e_n$，令
+    取 $\mathcal{V}$ 的一组基 $e_1, \ldots, e_n$,令
     \[
     f_i(e_j)=
     \begin{cases}
@@ -113,39 +113,39 @@
         0, & i\ne j.
     \end{cases},
     \]   
-    我们只需证明：如果 $a_1,\ldots,a_n \in \K \ \text{满足} \ \sum_{i = 1}^{n} a_i f_i = 0$，那么 $a_1 = \cdots = a_n = 0$。
+    我们只需证明:如果 $a_1,\ldots,a_n \in \K \ \text{满足} \ \sum_{i = 1}^{n} a_i f_i = 0$,那么 $a_1 = \cdots = a_n = 0$.
 
-    代入 $e_j$，得到 $(a_1 f_1 + \cdots + a_n f_n)(e_j) = 0$，也就是
+    代入 $e_j$,得到 $(a_1 f_1 + \cdots + a_n f_n)(e_j) = 0$,也就是
     \[
         a_1 f_1(e_j) + \cdots + a_n f_n(e_j) = 0.
     \]
 
-    又因为 $f_i(e_j) = 0, \quad i \ne j,$所以得到 $a_j = 0$。
+    又因为 $f_i(e_j) = 0, \quad i \ne j,$所以得到 $a_j = 0$.
     
-    类似地，可以得到 $a_j = 0$ 对每个 $j = 1,\ldots,n$ 都成立，所以 $a_1 = \cdots = a_n = 0$，即 $f_1, \ldots, f_n$ 线性无关。
+    类似地,可以得到 $a_j = 0$ 对每个 $j = 1,\ldots,n$ 都成立,所以 $a_1 = \cdots = a_n = 0$,即 $f_1, \ldots, f_n$ 线性无关.
 
-    下面我们只需证明 $f_1, \ldots, f_n$ 生成整个 $\mathcal{W}$ 向量空间。
+    下面我们只需证明 $f_1, \ldots, f_n$ 生成整个 $\mathcal{W}$ 向量空间.
 
-    因为$e_1,\ldots,e_n$ 是 $\mathcal{V}$ 的一组基，所以 $\forall x \in \mathcal{V}$ 都能由 $e_1,\ldots,e_n$ 线性表出：
+    因为$e_1,\ldots,e_n$ 是 $\mathcal{V}$ 的一组基,所以 $\forall x \in \mathcal{V}$ 都能由 $e_1,\ldots,e_n$ 线性表出:
     \[
         x = b_1 e_1 + \cdots + b_n e_n.
     \]
 
-    则 $\forall f \in \mathcal{W}$，
+    则 $\forall f \in \mathcal{W}$,
     \[
         f(x) = f\left(\sum_{i = 1}^{n} b_i e_i\right) = \sum_{i = 1}^{n} b_i f(e_i).
     \]
 
-    其中， $e_i$ 是固定的基向量，所以 $f(e_i)$ 也是确定的。我们令 $c_i = f(e_i)$，则
+    其中, $e_i$ 是固定的基向量,所以 $f(e_i)$ 也是确定的.我们令 $c_i = f(e_i)$,则
     \begin{align*}
         f(x) &= \sum_{i = 1}^{n}b_i c_i
             = \sum_{i = 1}^{n} c_i f(b_i e_i) \\
             &= \sum_{i = 1}^{n} c_i f(b_1 e_1 + \cdots + b_i e_i + \cdots + b_n e_n) \\
             &= \sum_{i = 1}^{n} c_i f_i(x)
     \end{align*}
-    对 $\forall x \in \K$ 成立。所以 $\forall f \in \mathcal{W}$ 都能表示成 $f_1,\ldots,f_n$ 的线性组合。
+    对 $\forall x \in \K$ 成立.所以 $\forall f \in \mathcal{W}$ 都能表示成 $f_1,\ldots,f_n$ 的线性组合.
 
-    综上，我们证明了$\mathcal V$ 上的线性泛函全体 $\mathcal W$ 也构成 $\K$ 上的 $n$ 维向量空间，并且存在 $\mathcal V$ 的基 $e_1,\dots,e_n$ 以及 $\mathcal W$ 的基 $f_1,\dots,f_n$ 使得
+    综上,我们证明了$\mathcal V$ 上的线性泛函全体 $\mathcal W$ 也构成 $\K$ 上的 $n$ 维向量空间,并且存在 $\mathcal V$ 的基 $e_1,\dots,e_n$ 以及 $\mathcal W$ 的基 $f_1,\dots,f_n$ 使得
 \[
     f_i(e_j)=
     \begin{cases}
@@ -156,20 +156,20 @@
 \end{problem}
 
 \begin{problem}
-若 $n_1,n_2,n_3,n_4$ 是正整数，$A\in\C^{n_1\times n_2}$，$B\in\C^{n_2\times n_3}$，$C\in\C^{n_3\times n_4}$，证明 Frobenius 不等式：
+若 $n_1,n_2,n_3,n_4$ 是正整数,$A\in\C^{n_1\times n_2}$,$B\in\C^{n_2\times n_3}$,$C\in\C^{n_3\times n_4}$,证明 Frobenius 不等式:
 \[
     \operatorname{rank}(AB)+\operatorname{rank}(BC)\le \operatorname{rank}(ABC)+\operatorname{rank}(B).
 \]
 
     \begin{solnote}
-        如果用分块矩阵证明的话，有一个比较关键的结论：
+        如果用分块矩阵证明的话,有一个比较关键的结论:
         \[
             \rank \begin{pmatrix}
                 A & B \\ O & D
             \end{pmatrix}
             \ge \rank(A) + \rank(D).
         \]
-        证明见下方。
+        证明见下方.
     \end{solnote}
 
     \begin{solution}
@@ -183,11 +183,11 @@
         \end{sollemma*}
 
         \begin{proof}[Proof]
-            设 $A(m \times p), \ B(m \times q), \ D(n \times q), \ r := \rank(A) < p, \ s = \rank(D) < q$，
-            那么 $A$ 一定有 r 个线性无关列，记为 $a_1,a_2, \ldots, a_r$； $D$ 有 s 个线性无关列，记为 $d_1,d_2, \ldots, d_s$。
-            记 $b_j$ 为B中恰好排在 $d_j$ 之上的列，则 $\begin{pmatrix}
+            设 $A(m \times p), \ B(m \times q), \ D(n \times q), \ r := \rank(A) < p, \ s = \rank(D) < q$,
+            那么 $A$ 一定有 r 个线性无关列,记为 $a_1,a_2, \ldots, a_r$； $D$ 有 s 个线性无关列,记为 $d_1,d_2, \ldots, d_s$.
+            记 $b_j$ 为B中恰好排在 $d_j$ 之上的列,则 $\begin{pmatrix}
                 A & B \\ O & D
-            \end{pmatrix}$ 中有这样的 $r + s$ 列：
+            \end{pmatrix}$ 中有这样的 $r + s$ 列:
             \[
                 \begin{pmatrix} a_1 \\ 0 \end{pmatrix},
                 \begin{pmatrix} a_2 \\ 0 \end{pmatrix},
@@ -197,14 +197,14 @@
                 \begin{pmatrix} b_2 \\ d_2 \end{pmatrix},
                 \begin{pmatrix} b_s \\ d_s \end{pmatrix},
             \]
-            这 $r + s$ 个向量一定是线性无关的。
+            这 $r + s$ 个向量一定是线性无关的.
 
             所以 $\rank\begin{pmatrix}
                 A & B \\ O & D
-                \end{pmatrix} \ge r+s = \rank(A) + \rank(D)$。 
+                \end{pmatrix} \ge r+s = \rank(A) + \rank(D)$. 
         \end{proof}
 
-        考虑这样的一个矩阵：
+        考虑这样的一个矩阵:
         \[
             \begin{pmatrix}
                 AB & B \\ O & BC
@@ -226,11 +226,11 @@
             \end{pmatrix}
         \]
 
-        所以 $\rank(ABC) + \rank(B) = \rank \begin{pmatrix} O & B \\ -ABC & O \end{pmatrix} = \rank\begin{pmatrix} AB & B \\ O & BC \end{pmatrix}$。
+        所以 $\rank(ABC) + \rank(B) = \rank \begin{pmatrix} O & B \\ -ABC & O \end{pmatrix} = \rank\begin{pmatrix} AB & B \\ O & BC \end{pmatrix}$.
 
-        又因为 $\rank\begin{pmatrix} AB & B \\ O & BC \end{pmatrix} \ge \rank(AB) + \rank(BC)$，
+        又因为 $\rank\begin{pmatrix} AB & B \\ O & BC \end{pmatrix} \ge \rank(AB) + \rank(BC)$,
         
-        所以 $\operatorname{rank}(AB)+\operatorname{rank}(BC)\le \operatorname{rank}(ABC)+\operatorname{rank}(B)$ 。
+        所以 $\operatorname{rank}(AB)+\operatorname{rank}(BC)\le \operatorname{rank}(ABC)+\operatorname{rank}(B)$ .
     \end{solution}
 \end{problem}
 
@@ -246,7 +246,7 @@
         1 & 5 & 15 & 31 & 53
     \end{bmatrix}.
 \]
-构造一个对称矩阵 $X$，使得 $AXA=A$ 且 $XAX=X$。
+构造一个对称矩阵 $X$,使得 $AXA=A$ 且 $XAX=X$.
 \begin{solution}
     令
     \[
@@ -269,9 +269,9 @@
     \[
         X=P^{-\mathsf T}DP^{-1}.
     \]
-    则 X 显然是对称矩阵。
+    则 X 显然是对称矩阵.
 
-    接下来验证 X 是否满足题意：
+    接下来验证 X 是否满足题意:
     \[
         AXA
         =\left(PDP^{\mathsf T}\right)\left(P^{-\mathsf T}DP^{-1}\right)\left(PDP^{\mathsf T}\right)
@@ -288,9 +288,9 @@
         =X.
     \]
 
-    因此 $X=P^{-\mathsf T}DP^{-1}$ 就是我们要求的对称矩阵。
+    因此 $X=P^{-\mathsf T}DP^{-1}$ 就是我们要求的对称矩阵.
 
-    因为 $P$ 是下三角 Pascal 矩阵，所以其逆矩阵为
+    因为 $P$ 是下三角 Pascal 矩阵,所以其逆矩阵为
     \[
         P^{-1}=
         \begin{bmatrix}
@@ -326,7 +326,7 @@
 \end{problem}
 
 \begin{problem}[选做]
-已知 $n$ 是正整数，$A,B\in\C^{n\times n}$ 满足 $AB=BA$。证明：
+已知 $n$ 是正整数,$A,B\in\C^{n\times n}$ 满足 $AB=BA$.证明:
 \[
     \operatorname{rank}(A+B)+\operatorname{rank}(AB)\le \operatorname{rank}(A)+\operatorname{rank}(B).
 \]
@@ -338,7 +338,7 @@
 
     因为 $\forall x \in \C^n,$ 
     \[ (A+B)x = Ax + Bx \in \range(A) + \range(B),\]
-    所以 $\range(A+B) \subseteq \range(A) + \range(B)$。 
+    所以 $\range(A+B) \subseteq \range(A) + \range(B)$. 
 
     所以
     \begin{align*}
@@ -346,38 +346,38 @@
         &\le \dim(\range(A)) + \dim(\range(B)) - \dim(\range(A) \cap \range(B)) \\
         &\le \rank(A) + \rank(B) - \dim(\range(A) \cap \range(B)). \tag{1}
     \end{align*}
-    又由 $AB = BA$ 得：
+    又由 $AB = BA$ 得:
     \begin{gather*}
         \range(AB) \subseteq \range(A) \\
         \range(AB) = \range(BA) \subseteq \range(B),
     \end{gather*}
-    所以 $\range(AB) \subseteq \range(A) \cap \range(B)$。
+    所以 $\range(AB) \subseteq \range(A) \cap \range(B)$.
     
     于是
     \begin{equation}
         \rank(AB) = \dim(\range(AB)) \le \dim(\range(A) \cap \range(B)). \tag{2}
     \end{equation}
 
-    将 (1) 和 (2) 相加即可。
+    将 (1) 和 (2) 相加即可.
 \end{solution}
 \end{problem}
 
 \begin{problem}[选做]
-若 $m,n$ 是正整数，$\C^{m\times n}$ 上的矩阵序列 $\left(A_k\right)_{k=1}^{\infty}$ 收敛，证明：
+若 $m,n$ 是正整数,$\C^{m\times n}$ 上的矩阵序列 $\left(A_k\right)_{k=1}^{\infty}$ 收敛,证明:
 \[
     \operatorname{rank}\left(\lim_{k\to+\infty} A_k\right)\le \liminf_{k\to+\infty}\operatorname{rank}(A_k).
 \]
 \begin{solution}
-    设 $A = \lim \limits_{k \to \infty} A_k, \quad r = \rank(A)$。
+    设 $A = \lim \limits_{k \to \infty} A_k, \quad r = \rank(A)$.
     
-    则 $A$ 有一个 $r \times r$ 的子式行列式非0，记这个子式的行列式为 $\Delta(A) \ne 0$；
+    则 $A$ 有一个 $r \times r$ 的子式行列式非0,记这个子式的行列式为 $\Delta(A) \ne 0$；
     
-    又因为 $\Delta(\cdot)$ 是 $\C$ 上的多项式，所以 $\Delta$ 连续；由 $A_k \to A$ 得到：
+    又因为 $\Delta(\cdot)$ 是 $\C$ 上的多项式,所以 $\Delta$ 连续；由 $A_k \to A$ 得到:
     \[
         \lim \limits_{k \to \infty} \Delta(A_k) = \Delta(A) \ne 0.
     \]
 
-    这说明对充分大的 $k$ ，矩阵 $A_k$ 至少有一个 $r \times r$ 子式非0，因此
+    这说明对充分大的 $k$ ,矩阵 $A_k$ 至少有一个 $r \times r$ 子式非0,因此
     \[
         \liminf_{k \to \infty} \rank(A_k) \ge r,
     \]
@@ -389,38 +389,38 @@
 \end{problem}
 
 \begin{problem}[选做]
-已知 $n$ 是大于 $1$ 的整数。证明：不存在 $u,v\in\R^n$ 使得
+已知 $n$ 是大于 $1$ 的整数.证明:不存在 $u,v\in\R^n$ 使得
 \[
     \operatorname{tr}(A)=v^\top Au
 \]
-对一切 $A\in\R^{n\times n}$ 恒成立。
+对一切 $A\in\R^{n\times n}$ 恒成立.
 \begin{solution}
 
-    我们可以使用反证法证明：假设存在 $u,v\in\R^n$，使得 $\operatorname{tr}(A)=v^\top Au$ 对一切 $A\in\R^{n\times n}$ 恒成立。
+    我们可以使用反证法证明:假设存在 $u,v\in\R^n$,使得 $\operatorname{tr}(A)=v^\top Au$ 对一切 $A\in\R^{n\times n}$ 恒成立.
 
-    \textbf{\romannumeral1. $u = 0$ 或 $v = 0$：}
+    \textbf{\romannumeral1. $u = 0$ 或 $v = 0$:}
 
-    此时 $v^\top Au$ 恒等于0。则对于 $\forall A \in \R^{n \times n}$ 且 $\operatorname{tr}(A) \ne 0$，等式不成立。
+    此时 $v^\top Au$ 恒等于0.则对于 $\forall A \in \R^{n \times n}$ 且 $\operatorname{tr}(A) \ne 0$,等式不成立.
 
-    \textbf{\romannumeral2. $u \ne 0$ 且 $v \ne 0$：}
+    \textbf{\romannumeral2. $u \ne 0$ 且 $v \ne 0$:}
 
-    我们可以构造一个反例：
+    我们可以构造一个反例:
     \[
         \forall u,v \in \R^n, \ \exists A \in \R^{n \times n} \quad \text{s.t.} \operatorname{tr}(A) = 0 \ \text{且} \ v^\top Au \ne 0.
     \]
 
-    取向量 $x \in \R^n$，满足： $v^\top x \ne 0$ 且 $x$ 与 $u$ 不共线，则一定可以取到，因为 $n > 1$；
+    取向量 $x \in \R^n$,满足: $v^\top x \ne 0$ 且 $x$ 与 $u$ 不共线,则一定可以取到,因为 $n > 1$；
     
-    再取 $y \in \R^n$，满足 $y^\top x = 0$ 且 $y^\top u \ne 0$。这也是可以取到的，因为我们只需寻找 $y \in x^\perp \ \text{且} \ y \notin u^\perp$；
-    $x^\perp$ 和 $u^\perp$ 都是 $n-1$ 维的子空间，并且因为 $x$ 与 $u$ 不共线，所以$x^\perp$ 和 $u^\perp$不重合，我们一定可以找到符合条件的 $y$ 。
+    再取 $y \in \R^n$,满足 $y^\top x = 0$ 且 $y^\top u \ne 0$.这也是可以取到的,因为我们只需寻找 $y \in x^\perp \ \text{且} \ y \notin u^\perp$；
+    $x^\perp$ 和 $u^\perp$ 都是 $n-1$ 维的子空间,并且因为 $x$ 与 $u$ 不共线,所以$x^\perp$ 和 $u^\perp$不重合,我们一定可以找到符合条件的 $y$ .
 
-    令 $A = xy^\top$，则 $\operatorname{tr}(A) = \operatorname{tr}(xy^\top) = y^\top x = 0$;
+    令 $A = xy^\top$,则 $\operatorname{tr}(A) = \operatorname{tr}(xy^\top) = y^\top x = 0$;
     而
     \[
         v^\top A u = v^\top (x y^\top) u = (v^\top x)(y^\top u) \ne 0,
     \]
-    所以 $\operatorname{tr}(A) \ne v^\top Au$。
+    所以 $\operatorname{tr}(A) \ne v^\top Au$.
 
-    因此，不存在 $u,v\in\R^n$使得 $\operatorname{tr}(A)=v^\top Au$ 对一切 $A\in\R^{n\times n}$ 恒成立。
+    因此,不存在 $u,v\in\R^n$使得 $\operatorname{tr}(A)=v^\top Au$ 对一切 $A\in\R^{n\times n}$ 恒成立.
 \end{solution}
 \end{problem}

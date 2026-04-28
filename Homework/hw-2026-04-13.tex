@@ -1,12 +1,12 @@
 \section*{2026 年 4 月 13 日作业}
 \phantomsection
 \addcontentsline{toc}{section}{2026 年 4 月 13 日作业}
-\noindent\textbf{截止时间：2026 年 4 月 20 日 13:30}
+\noindent\textbf{截止时间:2026 年 4 月 20 日 13:30}
 \setcounter{problem}{0}
 \setcounter{sollemma}{0}
 
 \begin{problem}
-已知 $m,n$ 是正整数,$A\in\C^{m\times n}$,$B$ 是 $A$ 的一个子矩阵.证明：当 $1\le p\le\infty$ 时 $\|B\|_p\le\|A\|_p$.
+已知 $m,n$ 是正整数,$A\in\C^{m\times n}$,$B$ 是 $A$ 的一个子矩阵.证明:当 $1\le p\le\infty$ 时 $\|B\|_p\le\|A\|_p$.
 \begin{solution}
     设 $B$ 是由 $A$ 的第 $i_1,\dots,i_{r}$ 行和第 $j_1,\dots,j_{s}$ 列组成的子矩阵,其中 $r\le m$,$s\le n$.定义 $P \in \C^{r \times m}$ 和 $Q \in \C^{n \times s}$ 满足 $P_{k,i_k} = 1$ 对 $k=1,\dots,r$,其余元素为 $0$；$Q_{j_l,l} = 1$ 对 $l=1,\dots,s$,其余元素为 $0$.则 $B = P A Q$.
 
@@ -62,7 +62,7 @@
 \end{problem}
 
 \begin{problem}
-已知 $m,n$ 是正整数,$x\in\C^m$,$y\in\C^n$.证明：$\|xy^*\|_2=\|xy^*\|_F=\|x\|_2\|y\|_2$.
+已知 $m,n$ 是正整数,$x\in\C^m$,$y\in\C^n$.证明:$\|xy^*\|_2=\|xy^*\|_F=\|x\|_2\|y\|_2$.
 \begin{solution}
     先求 $\|xy^*\|_2$.
 
@@ -121,7 +121,7 @@
 \end{problem}
 
 \begin{problem}
-若 $A,B$ 是复矩阵,证明：$\|A\otimes B\|_F=\|A\|_F\|B\|_F$.
+若 $A,B$ 是复矩阵,证明:$\|A\otimes B\|_F=\|A\|_F\|B\|_F$.
 \begin{solution}
     设
     \[
@@ -156,9 +156,9 @@
 \end{problem}
 
 \begin{problem}
-已知 $m,n$ 为正整数,$A\in\C^{m\times n}$.证明：$\|A\|_2^2\le\|A\|_1\|A\|_{\infty}$.
+已知 $m,n$ 为正整数,$A\in\C^{m\times n}$.证明:$\|A\|_2^2\le\|A\|_1\|A\|_{\infty}$.
 
-\textbf{（选做）}若实数 $p,q$ 满足 $p^{-1}+q^{-1}=1$,证明：$\|A\|_2^2\le\|A\|_p\|A\|_q$.
+\textbf{（选做）}若实数 $p,q$ 满足 $p^{-1}+q^{-1}=1$,证明:$\|A\|_2^2\le\|A\|_p\|A\|_q$.
 \begin{solution}
     由矩阵 2- 范数的定义得 $\|A\|_2^2 = \|A^*A\|_2 = \lambda_{\max}(A^*A)$. 又因为
     \begin{equation*}\label{eq:hwq4}
@@ -170,11 +170,11 @@
     \]
     得证!
 
-    \textbf{下面证明若实数 $p,q$ 满足 $p^{-1}+q^{-1}=1$,则$\|A\|_2^2$同样$\le\|A\|_p\|A\|_q$：}
+    \textbf{下面证明若实数 $p,q$ 满足 $p^{-1}+q^{-1}=1$,则$\|A\|_2^2$同样$\le\|A\|_p\|A\|_q$:}
 
-    仿照上面的证法,我们只需要证明： $\|A^*\|_q = \|A\|_p$.
+    仿照上面的证法,我们只需要证明: $\|A^*\|_q = \|A\|_p$.
 
-    \textbf{证明：}
+    \textbf{证明:}
 
     由诱导范数的定义得, $\|A\|_p = \max_{\|x\|_p=1} \|Ax\|_p$.
     由 Hölder 不等式,我们有
@@ -197,7 +197,7 @@
 \end{problem}
 
 \begin{problem}
-已知 $n$ 是正整数,$A\in\C^{n\times n}$ 是非奇异矩阵,$\Delta A\in\C^{n\times n}$,$b\in\C^n\setminus\{0\}$,$\Delta b\in\C^n$.若 $\|\cdot\|$ 是算子范数,满足 $\|\Delta A\|<\|A^{-1}\|^{-1}$,证明：
+已知 $n$ 是正整数,$A\in\C^{n\times n}$ 是非奇异矩阵,$\Delta A\in\C^{n\times n}$,$b\in\C^n\setminus\{0\}$,$\Delta b\in\C^n$.若 $\|\cdot\|$ 是算子范数,满足 $\|\Delta A\|<\|A^{-1}\|^{-1}$,证明:
 \[
     \frac{\|(A+\Delta A)^{-1}(b+\Delta b)-A^{-1}b\|}{\|A^{-1}b\|}
     \le
@@ -210,7 +210,7 @@
 \]
 其中 $\kappa(A)=\|A\|\|A^{-1}\|$.
 \begin{solution}
-    证明：记 $\tilde{x} = (A+\Delta A)^{-1}(b+\Delta b)$,$x = A^{-1}b$. 则
+    证明:记 $\tilde{x} = (A+\Delta A)^{-1}(b+\Delta b)$,$x = A^{-1}b$. 则
     \begin{align*}
         \tilde{x} - x
         &= (A+\Delta A)^{-1}(b+\Delta b) - A^{-1}b \\
@@ -225,7 +225,7 @@
     \[
         \tilde{x} - x = E(I + E)^{-1}A^{-1}b + (I+E)^{-1}A^{-1}\Delta b.
     \]
-    接下来估计范数：
+    接下来估计范数:
     由算子范数的相容性,我们有
     \[
         \|\tilde{x} - x\| \le \|(I - E)^{-1}\|(\|EA^{-1}b\| + \|A^{-1}\Delta b\|),
@@ -235,13 +235,13 @@
         \frac{\|\tilde x-x\|}{\|A^{-1}b\|} \le \|(I-E)^{-1}\| \left( \frac{\|EA^{-1}b\|}{\|A^{-1}b\|} + \frac{\|A^{-1}\Delta b\|}{\|A^{-1}b\|} \right).
     \]
 
-    先估计 $\dfrac{\|EA^{-1}b\|}{\|A^{-1}b\|}$：
+    先估计 $\dfrac{\|EA^{-1}b\|}{\|A^{-1}b\|}$:
     由算子范数的性质,
     \[
         \frac{\|EA^{-1}b\|}{\|A^{-1}b\|} \le \|E\| \le \|A^{-1}\|\|\Delta A\| = \kappa(A)\frac{\|\Delta A\|}{\|A\|}.
     \]
 
-    再估计 $\dfrac{\|A^{-1}\Delta b\|}{\|A^{-1}b\|}$：
+    再估计 $\dfrac{\|A^{-1}\Delta b\|}{\|A^{-1}b\|}$:
     \[
         \frac{\|A^{-1}\Delta b\|}{\|A^{-1}b\|} \le \|A^{-1}\| \frac{\|\Delta b\|}{\|A^{-1}b\|} \le \|A^{-1}\|\|A\|\frac{\|\Delta b\|}{\|b\|} = \kappa(A)\frac{\|\Delta b\|}{\|b\|}.
     \]
@@ -263,14 +263,14 @@
 \[
     N_{\infty}(A)=\sum_{j=1}^{n}\|a_j\|_{\infty}.
 \]
-证明：$N_{\infty}(\cdot)$ 是 $\C^{n\times n}$ 上的相容矩阵范数.
+证明:$N_{\infty}(\cdot)$ 是 $\C^{n\times n}$ 上的相容矩阵范数.
 \begin{solution}
 
 \end{solution}
 \end{problem}
 
 \begin{problem}[选做]
-已知 $n$ 是正整数,$A\in\C^{n\times n}$.证明：无穷级数
+已知 $n$ 是正整数,$A\in\C^{n\times n}$.证明:无穷级数
 \[
     \sum_{k=0}^{\infty}(A^*)^kA^k
 \]
@@ -281,7 +281,7 @@
 \end{problem}
 
 \begin{problem}[选做]
-已知 $m,n$ 是正整数,且 $\min\{m,n\}>1$.证明：$\C^{m\times n}$ 上的 Frobenius 范数不是算子范数,即 $\C^m$ 和 $\C^n$ 上的任何范数都不能诱导出 $\C^{m\times n}$ 上的 Frobenius 范数.
+已知 $m,n$ 是正整数,且 $\min\{m,n\}>1$.证明:$\C^{m\times n}$ 上的 Frobenius 范数不是算子范数,即 $\C^m$ 和 $\C^n$ 上的任何范数都不能诱导出 $\C^{m\times n}$ 上的 Frobenius 范数.
 \begin{solution}
 
 \end{solution}

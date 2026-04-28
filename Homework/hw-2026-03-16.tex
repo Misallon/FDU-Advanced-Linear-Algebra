@@ -1,59 +1,59 @@
 \section*{2026 年 3 月 16 日作业}
 \phantomsection
 \addcontentsline{toc}{section}{2026 年 3 月 16 日作业}
-\noindent\textbf{截止时间：2026 年 3 月 23 日 13:30}
+\noindent\textbf{截止时间:2026 年 3 月 23 日 13:30}
 \setcounter{problem}{0}
 
 \begin{problem}
-    若 $\K$ 是 $\C$ 的子域，且 $\R$ 是 $\K$ 的子域，证明：$\K=\R$ 或者 $\K=\C$。
+    若 $\K$ 是 $\C$ 的子域,且 $\R$ 是 $\K$ 的子域,证明:$\K=\R$ 或者 $\K=\C$.
 
-    注：本题说明不存在介于实数域和复数域之间的域。
+    注:本题说明不存在介于实数域和复数域之间的域.
 
     \begin{solution}
-        设 $\R\subseteq \K\subseteq \C$。
+        设 $\R\subseteq \K\subseteq \C$.
 
-        若 $\K=\R$，结论成立。
+        若 $\K=\R$,结论成立.
 
-        下面设 $\K\neq \R$。则存在 $z\in \K\setminus \R$。由于 $z\in\C$，可写成
+        下面设 $\K\neq \R$.则存在 $z\in \K\setminus \R$.由于 $z\in\C$,可写成
         \[
             z=a+b\ii,\qquad a,b\in\R.
         \]
-        又因为 $z\notin\R$，所以 $b\neq 0$。
+        又因为 $z\notin\R$,所以 $b\neq 0$.
 
-        由 $\R\subseteq \K$，知 $a,b\in \K$。于是
+        由 $\R\subseteq \K$,知 $a,b\in \K$.于是
         \[
             z-a=b\ii\in \K.
         \]
-        又因 $b\neq 0$ 且 $b\in \K$，故 $b^{-1}\in \K$。所以
+        又因 $b\neq 0$ 且 $b\in \K$,故 $b^{-1}\in \K$.所以
         \[
             \ii=b^{-1}(z-a)\in \K.
         \]
 
-        现任取任意 $w\in\C$。则存在 $u,v\in\R$ 使
+        现任取任意 $w\in\C$.则存在 $u,v\in\R$ 使
         \[
             w=u+v\ii.
         \]
-        由于 $\R\subseteq \K$ 且 $\ii\in \K$，故 $u,v,\ii\in \K$，从而
+        由于 $\R\subseteq \K$ 且 $\ii\in \K$,故 $u,v,\ii\in \K$,从而
         \[
             w=u+v\ii\in \K.
         \]
-        因此 $\C\subseteq \K$。
+        因此 $\C\subseteq \K$.
 
-        另一方面，本来就有 $\K\subseteq \C$，所以
+        另一方面,本来就有 $\K\subseteq \C$,所以
         \[
             \K=\C.
         \]
 
-        综上，
+        综上,
         \[
             \K=\R\quad\text{或}\quad \K=\C.
         \]
-        证毕。
+        证毕.
     \end{solution}
 \end{problem}
 
 \begin{problem}
-    分母有理化：
+    分母有理化:
     \[
         \alpha=\frac{1}{2+3\sqrt[3]{3}+\sqrt[3]{9}},
         \qquad
@@ -61,11 +61,11 @@
     \]
 
     \begin{solution}
-        先求 $\alpha$。设
+        先求 $\alpha$.设
         \[
             \omega=\sqrt[3]{3},\qquad \omega^2=\sqrt[3]{9},\qquad \omega^3=3.
         \]
-        在基 $\left(1,\omega,\omega^2\right)$ 下，“乘以 $\omega$” 的线性变换矩阵为
+        在基 $\left(1,\omega,\omega^2\right)$ 下,“乘以 $\omega$” 的线性变换矩阵为
         \[
             A=
             \begin{bmatrix}
@@ -94,7 +94,7 @@
         \[
             \alpha=\frac1{2+3\omega+\omega^2}
         \]
-        对应于 $M^{-1}$。计算得
+        对应于 $M^{-1}$.计算得
         \[
             M^{-1}=
             \begin{bmatrix}
@@ -104,7 +104,7 @@
             \end{bmatrix}.
         \]
 
-        而一般地，
+        而一般地,
         \[
             p+q\omega+r\omega^2
             \longmapsto
@@ -127,11 +127,11 @@
             }.
         \]
 
-        再求 $\beta$。设
+        再求 $\beta$.设
         \[
             u=\sqrt2,\qquad v=\sqrt3,\qquad uv=\sqrt6.
         \]
-        在基 $\left(1,u,v,uv\right)$ 下，“乘以 $u$” 与 “乘以 $v$” 的矩阵分别为
+        在基 $\left(1,u,v,uv\right)$ 下,“乘以 $u$” 与 “乘以 $v$” 的矩阵分别为
         \[
             U=
             \begin{bmatrix}
@@ -163,7 +163,7 @@
         \[
             \beta=\frac1{1+2u+2v-3uv}
         \]
-        对应于 $N^{-1}$。计算得
+        对应于 $N^{-1}$.计算得
         \[
             N^{-1}=
             \begin{bmatrix}
@@ -174,7 +174,7 @@
             \end{bmatrix}.
         \]
 
-        而一般地，元素 $a+bu+cv+duv$ 在这组基下的坐标就是其“乘法矩阵”的第一列，因此由 $N^{-1}$ 的第一列可直接读出
+        而一般地,元素 $a+bu+cv+duv$ 在这组基下的坐标就是其“乘法矩阵”的第一列,因此由 $N^{-1}$ 的第一列可直接读出
         \[
             a=-\frac{31}{7},\qquad
             b=-\frac{22}{7},\qquad
@@ -208,7 +208,7 @@
 \end{problem}
 
 \begin{problem}
-    若 $K$ 是 $\C$ 的子域，在 $K^2$ 上定义运算
+    若 $K$ 是 $\C$ 的子域,在 $K^2$ 上定义运算
     \[
         \begin{bmatrix}
             a_1\\
@@ -237,10 +237,10 @@
         \end{bmatrix},
         \quad k\in K.
     \]
-    证明：若把 $\boxplus$ 和 $\boxtimes$ 分别视为加法和数乘运算，那么 $K^2$ 在这两个运算下构成向量空间。
+    证明:若把 $\boxplus$ 和 $\boxtimes$ 分别视为加法和数乘运算,那么 $K^2$ 在这两个运算下构成向量空间.
 
     \begin{solution}
-        由于 $K\subseteq \C$，故 $\operatorname{char}K=0$，从而 $\frac12\in K$。
+        由于 $K\subseteq \C$,故 $\operatorname{char}K=0$,从而 $\frac12\in K$.
 
         定义映射
         \[
@@ -261,7 +261,7 @@
                 y+\dfrac{x^2}{2}
             \end{pmatrix},
         \]
-        因而 $\Phi$ 是一个双射。
+        因而 $\Phi$ 是一个双射.
 
         设
         \[
@@ -284,7 +284,7 @@
             \end{pmatrix}
             =\Phi(u)+\Phi(v).
         \]
-        同理，
+        同理,
         \[
             \Phi(k\boxtimes u)
             =
@@ -300,19 +300,19 @@
             =k\,\Phi(u).
         \]
 
-        也就是说，题目中的运算满足
+        也就是说,题目中的运算满足
         \[
             u\boxplus v=\Phi^{-1}\bigl(\Phi(u)+\Phi(v)\bigr),\qquad
             k\boxtimes u=\Phi^{-1}\bigl(k\,\Phi(u)\bigr),
         \]
-        其中右边的加法与数乘都是通常意义下 $K^2$ 的运算。
+        其中右边的加法与数乘都是通常意义下 $K^2$ 的运算.
 
-        因为通常的 $K^2$ 本来就是一个 $K$-向量空间，而上述两式说明 $(K^2,\boxplus,\boxtimes)$ 只是把这个向量空间经由双射 $\Phi$ 映到原集合上，所以 $(K^2,\boxplus,\boxtimes)$ 也是一个 $K$-向量空间。
+        因为通常的 $K^2$ 本来就是一个 $K$-向量空间,而上述两式说明 $(K^2,\boxplus,\boxtimes)$ 只是把这个向量空间经由双射 $\Phi$ 映到原集合上,所以 $(K^2,\boxplus,\boxtimes)$ 也是一个 $K$-向量空间.
     \end{solution}
 \end{problem}
 
 \begin{problem}
-    若 $\K$ 是 $\C$ 的子域，证明：$\K^n$ 不能表示成其有限真子空间的并。
+    若 $\K$ 是 $\C$ 的子域,证明:$\K^n$ 不能表示成其有限真子空间的并.
 \end{problem}
 
 \begin{problem}
@@ -323,10 +323,10 @@
         (\mu-1)f(\mu+1)-(\mu+2)f(\mu)=0
         \right\}
     \]
-    是 $\mathbb{Q}$ 上的向量空间，并求它的维数和一组基。
+    是 $\mathbb{Q}$ 上的向量空间,并求它的维数和一组基.
     \begin{solution}
         \begin{solnote}
-            在这道题里，我们把 $(\mu-1)f(\mu+1)-(\mu+2)f(\mu)=0$ 写成分式： $\dfrac{f(\mu+1)}{f(\mu)} = \dfrac{\mu + 2}{\mu - 1}$，
+            在这道题里,我们把 $(\mu-1)f(\mu+1)-(\mu+2)f(\mu)=0$ 写成分式: $\dfrac{f(\mu+1)}{f(\mu)} = \dfrac{\mu + 2}{\mu - 1}$,
             就能得到
             \begin{align}
                 \dfrac{f(\mu + 4)}{f(\mu)}
@@ -340,17 +340,17 @@
                     \dfrac{\mu + 2}{\mu - 1} \\
                 &= \dfrac{(\mu + 3)(\mu + 4)(\mu + 5)}{(\mu - 1)\mu(\mu + 1)}.\label{eq:mu-shift-ratio}
             \end{align}
-            注意到令 $g(\mu) = (\mu - 1)\mu(\mu + 1)$ 的话，就有 $\dfrac{f(\mu + 4)}{f(\mu)} = \dfrac{g(\mu + 4)}{g(\mu)}$。
+            注意到令 $g(\mu) = (\mu - 1)\mu(\mu + 1)$ 的话,就有 $\dfrac{f(\mu + 4)}{f(\mu)} = \dfrac{g(\mu + 4)}{g(\mu)}$.
             
-            所以我们至少可以猜测 $f(x)$ 应该与 $g(x)$ 有某种相似的形式。  
+            所以我们至少可以猜测 $f(x)$ 应该与 $g(x)$ 有某种相似的形式.  
         \end{solnote}
 
         设 $V = \left\{
         f(\mu)\in\mathbb{Q}[\mu]:
         (\mu-1)f(\mu+1)-(\mu+2)f(\mu)=0
-        \right\}$ ，我们先证明 $V$ 确实是 $\mathbb{Q}$ 上的向量空间。
+        \right\}$ ,我们先证明 $V$ 确实是 $\mathbb{Q}$ 上的向量空间.
 
-        因为 $V\subseteq \mathbb{Q}[\mu]$，只需证明 $V$ 对线性组合封闭。任取
+        因为 $V\subseteq \mathbb{Q}[\mu]$,只需证明 $V$ 对线性组合封闭.任取
         \[
             f,g\in V,\qquad a,b\in\mathbb{Q},
         \]
@@ -358,7 +358,7 @@
         \[
             h(\mu)=af(\mu)+bg(\mu).
         \]
-        由于 $f,g\in V$，有
+        由于 $f,g\in V$,有
         \[
             (\mu-1)f(\mu+1)-(\mu+2)f(\mu)=0,
         \]
@@ -375,24 +375,24 @@
             &\quad + b\bigl[(\mu-1)g(\mu+1)-(\mu+2)g(\mu)\bigr] \\
             &= 0.
         \end{align*}
-        所以 $h\in V$，故 $V$ 对线性组合封闭。
-        因而 $V$ 是 $\mathbb{Q}[\mu]$ 的子空间，从而是 $\mathbb{Q}$ 上的向量空间。
+        所以 $h\in V$,故 $V$ 对线性组合封闭.
+        因而 $V$ 是 $\mathbb{Q}[\mu]$ 的子空间,从而是 $\mathbb{Q}$ 上的向量空间.
 
-        下面我们来求 $V$ 的维数和一组基。
+        下面我们来求 $V$ 的维数和一组基.
 
-        首先由 \eqref{eq:mu-shift-ratio} 式得，
-        $\dfrac{f(\mu + 4)}{f(\mu)} = \dfrac{g(\mu + 4)}{g(\mu)}$。
+        首先由 \eqref{eq:mu-shift-ratio} 式得,
+        $\dfrac{f(\mu + 4)}{f(\mu)} = \dfrac{g(\mu + 4)}{g(\mu)}$.
         
-        所以我们令 $h(\mu) = \dfrac{f(\mu)}{g(\mu)}$的话，就有 $h(\mu + 4) = h(\mu)$。
+        所以我们令 $h(\mu) = \dfrac{f(\mu)}{g(\mu)}$的话,就有 $h(\mu + 4) = h(\mu)$.
         
-        又因为 $f(x)$ 和 $g(x)$ 都是多项式，所以 $h(x)$ 是周期性的有理函数。
+        又因为 $f(x)$ 和 $g(x)$ 都是多项式,所以 $h(x)$ 是周期性的有理函数.
 
         \begin{sollemma*}
-            设 \(r(x)\in \mathbb{Q}(x)\) 是一个有理函数。若存在非零常数 \(T\in \mathbb{Q}\)，使得
+            设 \(r(x)\in \mathbb{Q}(x)\) 是一个有理函数.若存在非零常数 \(T\in \mathbb{Q}\),使得
             \[
                 r(x+T)=r(x)
             \]
-            对一切使两边都有定义的 \(x\) 成立，则 \(r(x)\) 必为常数。
+            对一切使两边都有定义的 \(x\) 成立,则 \(r(x)\) 必为常数.
         \end{sollemma*}
 
         \begin{proof}
@@ -406,11 +406,11 @@
                 m=\deg p,\qquad n=\deg q.
             \]
 
-            由于 \(r(x)\) 是周期函数，存在非零常数 \(T\) 使得
+            由于 \(r(x)\) 是周期函数,存在非零常数 \(T\) 使得
             \[
                 r(x+T)=r(x)
             \]
-            恒成立。下分三种情形讨论。
+            恒成立.下分三种情形讨论.
 
             \medskip
 
@@ -420,67 +420,67 @@
             \[
                 \lim_{x\to\infty} r(x)=0.
             \]
-            任取 \(x\) 使得 \(r(x)\) 有定义，由周期性可得对任意正整数 \(k\),
+            任取 \(x\) 使得 \(r(x)\) 有定义,由周期性可得对任意正整数 \(k\),
             \[
                 r(x)=r(x+kT).
             \]
-            当 \(k\to\infty\) 时，\(x+kT\to\infty\)，故
+            当 \(k\to\infty\) 时,\(x+kT\to\infty\),故
             \[
                 r(x)=\lim_{k\to\infty}r(x+kT)=0.
             \]
-            于是 \(r(x)\equiv 0\)，从而 \(r(x)\) 为常数。
+            于是 \(r(x)\equiv 0\),从而 \(r(x)\) 为常数.
 
             \medskip
 
             \noindent\textbf{情形 2: \(m=n\).}
 
-            设 \(p(x)\) 与 \(q(x)\) 的首项系数分别为 \(a_m\) 与 \(b_n\)，则
+            设 \(p(x)\) 与 \(q(x)\) 的首项系数分别为 \(a_m\) 与 \(b_n\),则
             \[
                 \lim_{x\to\infty} r(x)=\frac{a_m}{b_n}.
             \]
-            同样地，任取 \(x\) 使得 \(r(x)\) 有定义，由周期性有
+            同样地,任取 \(x\) 使得 \(r(x)\) 有定义,由周期性有
             \[
                 r(x)=r(x+kT)\qquad (\forall k\in\mathbb{N}).
             \]
-            令 \(k\to\infty\)，得
+            令 \(k\to\infty\),得
             \[
                 r(x)=\lim_{k\to\infty}r(x+kT)=\frac{a_m}{b_n}.
             \]
-            因此 \(r(x)\) 恒等于常数 \(\dfrac{a_m}{b_n}\)。
+            因此 \(r(x)\) 恒等于常数 \(\dfrac{a_m}{b_n}\).
 
             \medskip
 
             \noindent\textbf{情形 3: \(m>n\).}
 
-            此时当 \(x\to\infty\) 时，
+            此时当 \(x\to\infty\) 时,
             \[
                 |r(x)|\to\infty.
             \]
-            任取 \(x\) 使得 \(r(x)\) 有定义，由周期性仍有
+            任取 \(x\) 使得 \(r(x)\) 有定义,由周期性仍有
             \[
                 r(x)=r(x+kT)\qquad (\forall k\in\mathbb{N}).
             \]
-            当 \(k\to\infty\) 时，\(x+kT\to\infty\)，于是
+            当 \(k\to\infty\) 时,\(x+kT\to\infty\),于是
             \[
                 |r(x+kT)|\to\infty.
             \]
-            但左边又恒等于固定值 \(|r(x)|\)，矛盾。
+            但左边又恒等于固定值 \(|r(x)|\),矛盾.
 
-            故情形 3 不可能发生。
+            故情形 3 不可能发生.
 
             \medskip
 
-            综上，只有前两种情形可能出现，而这两种情形都推出 \(r(x)\) 为常数。因此，周期有理函数必为常数。
+            综上,只有前两种情形可能出现,而这两种情形都推出 \(r(x)\) 为常数.因此,周期有理函数必为常数.
         \end{proof}
 
-        所以 $h(\mu)$ 必为常数，即 $\dfrac{f(\mu)}{g(\mu)} = c \Rightarrow f(\mu) = c(\mu -1)\mu(\mu + 1), \quad c \in \mathbb{Q}$。
+        所以 $h(\mu)$ 必为常数,即 $\dfrac{f(\mu)}{g(\mu)} = c \Rightarrow f(\mu) = c(\mu -1)\mu(\mu + 1), \quad c \in \mathbb{Q}$.
         
-        所以 $V$ 的维数为1,一个基为 $(\mu -1)\mu(\mu + 1)$。 
+        所以 $V$ 的维数为1,一个基为 $(\mu -1)\mu(\mu + 1)$. 
     \end{solution}
 \end{problem}
 
 \begin{problem}[选做]
-    在 $\R^2$ 上定义乘法 $\times$：
+    在 $\R^2$ 上定义乘法 $\times$:
     \[
         \begin{bmatrix}
             \alpha_1\\
@@ -497,7 +497,7 @@
             \alpha_1\beta_2+\alpha_2\beta_1
         \end{bmatrix}.
     \]
-    则可构成一个与 $\C$ 同构的域，且
+    则可构成一个与 $\C$ 同构的域,且
     \[
         \left\{
         \begin{bmatrix}
@@ -507,7 +507,7 @@
         :\alpha\in\R
         \right\}
     \]
-    同构于 $\R$。证明：在 $\R^3$ 上不论如何定义乘法，都无法构成一个域使得
+    同构于 $\R$.证明:在 $\R^3$ 上不论如何定义乘法,都无法构成一个域使得
     \[
         \left\{
         \begin{bmatrix}
@@ -518,24 +518,24 @@
         :\alpha\in\R
         \right\}
     \]
-    同构于 $\R$。
+    同构于 $\R$.
 \end{problem}
 
 \begin{problem}[选做]
-    若 $n$ 是正整数，$A\in\R^{n\times n}$ 是给定的矩阵，且对任何 $x,y\in\R^n$ 都有
+    若 $n$ 是正整数,$A\in\R^{n\times n}$ 是给定的矩阵,且对任何 $x,y\in\R^n$ 都有
     \[
         (y^\top Ax)^2=(x^\top Ay)^2.
     \]
-    证明：$A$ 是对称矩阵或反对称矩阵。
+    证明:$A$ 是对称矩阵或反对称矩阵.
     \begin{solution}
-        因为 $y^TAx$ 和 $x^TA y$ 都是实数，所以有 $y^TAx = x^TAy$ 或 $y^TAx = -x^TAy$。
+        因为 $y^TAx$ 和 $x^TA y$ 都是实数,所以有 $y^TAx = x^TAy$ 或 $y^TAx = -x^TAy$.
         
         又因为
         \[
             y^T Ax = (Ax)^Ty = x^T A^T y,
         \]
-        所以有 $x^T(A^T \pm A)y = 0$ 对于任意 $x,y\in\R^n$ 都成立，
+        所以有 $x^T(A^T \pm A)y = 0$ 对于任意 $x,y\in\R^n$ 都成立,
 
-        所以 $A^T \pm A = 0$，即 $A$ 是对称矩阵或反对称矩阵。
+        所以 $A^T \pm A = 0$,即 $A$ 是对称矩阵或反对称矩阵.
     \end{solution}
 \end{problem}

@@ -1,3 +1,8 @@
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+
+
 \newcounter{problem}[section]
 \renewcommand{\theproblem}{\arabic{problem}}
 \newlength{\problemsep}
@@ -24,7 +29,7 @@
   \begingroup
   \setlength{\parindent}{0pt}
   \setlength{\parskip}{0.55em}
-  \noindent{\large\bfseries Solution：}\par\smallskip
+  \noindent{\large\bfseries Solution:}\par\smallskip
   \ignorespaces
 }{%
   \par
@@ -35,7 +40,7 @@
 \newenvironment{solnote}{%
   \par\smallskip
   \begin{quote}
-  \small\itshape\textbf{注：}\ignorespaces
+  \small\itshape\textbf{注:}\ignorespaces
 }{%
   \end{quote}
   \smallskip

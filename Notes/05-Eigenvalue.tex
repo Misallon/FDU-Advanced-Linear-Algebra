@@ -1,0 +1,335 @@
+\section{特征值}
+
+\begin{definition}
+给定矩阵 $A \in M_n(\C)$,如果存在标量 $\lambda$ 和\textbf{非零}向量 $x$ 满足
+\[
+    Ax = \lambda x,
+\]
+那我们就称 $\lambda$ 是 $A$ 的一个特征值,$x$ 是这个特征值对应的一个特征向量.
+\end{definition}
+
+实际上,我们也常常把上面的式子写成 $Ax = x\lambda$ 的形式.当我们只写出一个特征值的时候可能还看不出什么,但当我们有足够多线性无关的特征向量的时候,我们就能写成
+\[
+    A[x_1,x_2,\cdots,x_n] = [x_1,x_2,\cdots,x_n]
+    \begin{bmatrix}
+        \lambda_1 & & & \\
+        & \lambda_2 & & \\
+        & & \ddots & \\
+        & & & \lambda_n
+    \end{bmatrix},
+\]
+进而就有
+\[
+    AQ = Q\Lambda \Rightarrow A = Q\Lambda Q^{-1}, \quad \Lambda = \operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n).
+\]
+这也就是相似对角化的过程（如果 $A$ 可以相似对角化）.
+
+如果刚好这个 $A$ 还是 Hermite 的,那么还会有一些特别的性质:比如它的特征向量能取为一组正交基.
+
+\subsection{特征多项式}
+
+由 $Ax = \lambda x$,我们可以得到:
+\[
+    (A - \lambda I)x = 0 \ \text{有非0解} \Rightarrow \det(A - \lambda I) = 0.
+\]
+于是我们定义
+\[
+    \begin{aligned}
+        p(\lambda) &= \det(\lambda I - A) \\
+        &= \lambda^n - \alpha_{n-1}\lambda^{n-1} + \cdots + (-1)^{n-1}\alpha_1\lambda + (-1)^n\alpha_0
+    \end{aligned}
+\]
+为\textbf{特征多项式}.这里我们定义 $p(\lambda) = \det(\lambda I - A)$ 而不是 $\det(A - \lambda I)$ 的原因主要是保持 $\lambda^n$ 的系数为 1.
+
+由代数基本定理,我们还能得到
+\[
+    p(\lambda) = \prod_{i=1}^n (\lambda - \lambda_i).
+\]
+
+\subsection{Vieta 定理}
+
+回忆一下之前的式子:
+\[
+    \prod_{i=1}^n (\lambda - \lambda_i) = \lambda^n - \alpha_{n-1}\lambda^{n-1} + \cdots + (-1)^{n-1}\alpha_1\lambda + (-1)^n\alpha_0
+\]
+由韦达定理我们可以得到:
+\[
+    \begin{aligned}
+        \alpha_{n-1} &= \lambda_1 + \lambda_2 + \cdots + \lambda_n, \\
+        \alpha_{n-2} &= \lambda_1\lambda_2 + \lambda_1\lambda_3 + \cdots + \lambda_{n-1}\lambda_n, \\
+        \vdotswithin{=} \\
+        \alpha_0 &= \lambda_1\lambda_2\cdots\lambda_n.
+    \end{aligned}
+\]
+那么如何求出 $\alpha_0,\alpha_1,\cdots,\alpha_{n-1}$ 的值呢?下面是一个比较重要的性质:
+
+\begin{lemma}
+$\alpha_k$ 等于 $A$ 的所有 $(n-k)$ 阶主子式之和.
+\end{lemma}
+
+% 原 Markdown 此处为图片证明,按要求未插入图片.
+
+由此我们还可以推出两个比较常用的结论:
+\begin{enumerate}
+    \item $\alpha_0 = \lambda_1\lambda_2\cdots\lambda_n = \det(A)$；
+    \item $\alpha_{n-1} = \lambda_1 + \lambda_2 + \cdots + \lambda_n = \operatorname{tr}(A)$.
+\end{enumerate}
+
+\subsection{代数重数和几何重数}
+
+定义:
+\[
+    \begin{gathered}
+        m_{\mathrm{alge}}(\lambda_i) = \sup\left\{k \in \mathbb{Z} \mid \lim_{\xi \to \lambda_i} p(\xi)(\xi - \lambda_i)^{-k} = 0 \right\}, \\
+        m_{\mathrm{geom}}(\lambda_i) = \dim \operatorname{Ker}(\lambda_i I - A).
+    \end{gathered}
+\]
+
+性质:$m_{\mathrm{alge}}(\lambda_i) \ge m_{\mathrm{geom}}(\lambda_i)$.
+
+证明:
+
+设 $A$ 对应 $\lambda_i$ 的几何重数为 $k$,即对应 $\lambda_i$ 最多有 $k$ 个线性无关的特征向量 $x_1,\cdots,x_k$.仿照上面的过程,我们有如下的式子:
+\[
+    \begin{gathered}
+        Ax_1 = x_1\lambda_i \\
+        Ax_2 = x_2\lambda_i \\
+        \vdots \\
+        Ax_k = x_k\lambda_i
+    \end{gathered}
+    \quad \Rightarrow \quad
+    A[x_1,\cdots,x_k] = [x_1,\cdots,x_k]
+    \begin{bmatrix}
+        \lambda_i & & \\
+        & \ddots & \\
+        & & \lambda_i
+    \end{bmatrix}
+    = [x_1,\cdots,x_k]\lambda_i I_k
+\]
+
+我们可以把这 $k$ 个特征向量扩充为整个空间上的一组基 $\{x_1,\cdots,x_k,s_{k+1},\cdots,s_n\}$,并且记 $P = [x_1,\cdots,x_k,s_{k+1},\cdots,s_n]$.
+
+那么我们有:
+\[
+    AP = P
+    \begin{bmatrix}
+        \lambda_i I_k & * \\
+        0 & C
+    \end{bmatrix}
+\]
+记
+\[
+    B = \begin{bmatrix}
+        \lambda_i I_k & * \\
+        0 & C
+    \end{bmatrix},
+\]
+则
+\[
+    AP = PB \Rightarrow A = PBP^{-1}.
+\]
+由于这是一个相似变换,而相似变换不改变特征多项式,所以我们有
+\[
+    p_A(\lambda) = p_B(\lambda) = \det(\lambda I - B) = (\lambda - \lambda_i)^k p_C(\lambda).
+\]
+因此,矩阵 $A$ 与 $\lambda_i$ 对应的代数重数就是方程 $(\lambda - \lambda_i)^k p_C(\lambda)$ 在 $\lambda_i$ 处重根的个数.因为 $(\lambda - \lambda_i)^k$ 这个因子的存在,我们知道重根个数一定大于等于 $k$.因此 $m_{\mathrm{alge}} \ge k = m_{\mathrm{geom}}$.
+
+\subsection{左特征向量和（左）特征值}
+
+定义:
+\[
+    y^*A = \lambda y^*, \quad y \ne 0
+\]
+将上式左右分别取转置,我们有
+\[
+    A^*y = y\bar{\lambda}
+\]
+因此我们不难发现,左特征向量就是 $A^*$ 的特征向量,左特征值和 $A$ 的特征值基本没有区别.（好像差了一个共轭?但是 smy 没提,暂且存疑）
+
+回忆上面相似对角化的过程,我们有
+\[
+    A[p_1,\cdots,p_n] = [p_1,\cdots,p_n]
+    \begin{bmatrix}
+        \lambda_1 & & \\
+        & \ddots & \\
+        & & \lambda_n
+    \end{bmatrix}
+\]
+记
+\[
+    P = [p_1,\cdots,p_n], \quad \Lambda =
+    \begin{bmatrix}
+        \lambda_1 & & \\
+        & \ddots & \\
+        & & \lambda_n
+    \end{bmatrix},
+\]
+则上式可以被写成
+\[
+    AP = P\Lambda
+\]
+两边同时左乘和右乘 $P^{-1}$,得
+\[
+    P^{-1}A = \Lambda P^{-1}.
+\]
+因此 $P^{-1}$ 也是由 $A$ 的左特征向量所构成的矩阵,即
+\[
+    P^{-1} =
+    \begin{bmatrix}
+        y_1^* \\
+        \vdots \\
+        y_n^*
+    \end{bmatrix}.
+\]
+又由 $P^{-1}P = I$,我们有
+\[
+    y_i^*x_j = \delta_{ij}, \quad \text{其中} \delta_{ij} =
+    \begin{cases}
+        1, & i=j, \\
+        0, & i \ne j.
+    \end{cases}
+\]
+这就是左特征向量和右特征向量的\textbf{交叉正交性}.
+
+\subsection{谱映射定理}
+
+我们先思考这样一个问题:如果 $\lambda_i$ 是 $A$ 的特征值,那么 $A^2$ 的特征值会有什么性质呢?更进一步,$A^k$ 呢?
+
+因为 $\lambda_i$ 是 $A$ 的特征值,设 $x_i$ 是这个特征值相对的特征向量,那么我们有
+\[
+    Ax_i = x_i\lambda_i \Rightarrow A^2x_i = A(Ax_i) = A(x_i\lambda_i) = x_i\lambda_i^2
+\]
+因此 $\lambda_i^2$ 也是 $A^2$ 的特征值.类似地,在 $k \ge 0$ 时,都有 $\lambda(A^k) = (\lambda(A))^k$.当 $\det(A) \ne 0$ 时,上式对 $k < 0$ 的情况也成立.
+
+\textbf{谱映射定理:如果 $f$ 是解析函数,且 $\lambda$ 是 $A$ 的特征值,那么 $f(\lambda)$ 也是 $f(A)$ 的特征值.}
+
+（这部分证明不难,所以我是让 AI 帮我写的）
+
+证明:设 $A$ 的特征值为 $\lambda_1,\lambda_2,\dots,\lambda_n$,（这里按照代数重数重复计算,）我们要证明:$f(A)$ 的特征值为 $f(\lambda_1),f(\lambda_2),\dots,f(\lambda_n)$.
+
+因为 $A \in \C^{n\times n}$,所以 $A$ 可以相似于一个上三角矩阵.也就是说,存在可逆矩阵 $P$,使得
+\[
+    A = PTP^{-1},
+\]
+其中
+\[
+    T =
+    \begin{bmatrix}
+        \lambda_1 & * & \cdots & * \\
+        0 & \lambda_2 & \cdots & * \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & \lambda_n
+    \end{bmatrix}.
+\]
+这里对角线上的元素就是 $A$ 的特征值,按照代数重数排列.
+
+因为 $f$ 是解析函数,所以在合适区域内可以展开成幂级数:
+\[
+    f(z) = \sum_{m=0}^{\infty} a_m z^m.
+\]
+因此
+\[
+    f(A) = \sum_{m=0}^{\infty} a_m A^m.
+\]
+由于 $A = PTP^{-1}$,所以 $A^m = PT^mP^{-1}$.于是
+\[
+    f(A) = \sum_{m=0}^{\infty} a_m PT^mP^{-1} = P\left(\sum_{m=0}^{\infty} a_m T^m\right)P^{-1}.
+\]
+也就是说,
+\[
+    \boxed{f(A)=Pf(T)P^{-1}.}
+\]
+所以 $f(A)$ 与 $f(T)$ 相似,它们有相同的特征值.
+
+现在只需要看 $f(T)$ 的特征值.
+
+由于 $T$ 是上三角矩阵,所以 $T^m$ 也是上三角矩阵,并且 $T^m$ 的对角线元素是
+\[
+    \lambda_1^m,\lambda_2^m,\dots,\lambda_n^m.
+\]
+因此
+\[
+    f(T) = \sum_{m=0}^{\infty} a_m T^m
+\]
+仍然是上三角矩阵,而且它的第 $j$ 个对角线元素为
+\[
+    \sum_{m=0}^{\infty} a_m \lambda_j^m = f(\lambda_j).
+\]
+所以 $f(T)$ 是一个上三角矩阵,其对角线为
+\[
+    f(\lambda_1),f(\lambda_2),\dots,f(\lambda_n).
+\]
+而上三角矩阵的特征值就是其对角线元素.因此 $f(T)$ 的特征值为
+\[
+    f(\lambda_1),f(\lambda_2),\dots,f(\lambda_n).
+\]
+由于 $f(A)$ 与 $f(T)$ 相似,所以 $f(A)$ 也有这些特征值.因此
+\[
+    \boxed{\sigma(f(A)) = f(\sigma(A)).}
+\]
+
+\subsection{特征值与线性递推}
+
+回忆 Fibonacci 数列的递推形式:
+\[
+    F_{n+2} = F_{n+1} + F_n
+\]
+我们可以把上面的递推式写成矩阵乘法的形式:
+\[
+    \begin{bmatrix}
+        F_{n+2} & F_{n+1} \\
+        F_{n+1} & F_n
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        F_{n+1} & F_n \\
+        F_n & F_{n-1}
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}.
+\]
+如果把这个矩阵乘法反复应用 $n$ 次,我们就能得到
+\[
+    \begin{bmatrix}
+        F_{n+2} & F_{n+1} \\
+        F_{n+1} & F_n
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        F_2 & F_1 \\
+        F_1 & F_0
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}^n
+\]
+其中,$\begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix}^n$ 这一项我们只要知道它的特征值和特征向量,就能约化为 $(P\Lambda P^{-1})^n = P\Lambda^n P^{-1}$ 的形式.
+
+对于 $\begin{bmatrix}1 & 1 \\ 1 & 0\end{bmatrix}$,它是方程 $\lambda^2 - \lambda - 1 = 0$ 所对应的 Frobenius 友矩阵,所以对每一个特征值 $\lambda$,$v(\lambda) = \begin{bmatrix}\lambda \\ 1\end{bmatrix}$ 都一定是它的特征向量.因此
+\[
+    \begin{bmatrix}
+        1 & 1 \\
+        1 & 0
+    \end{bmatrix}^n
+    =
+    \begin{bmatrix}
+        \lambda_1 & \lambda_2 \\
+        1 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \lambda_1^n & \\
+        & \lambda_2^n
+    \end{bmatrix}
+    \begin{bmatrix}
+        \lambda_1 & \lambda_2 \\
+        1 & 1
+    \end{bmatrix}^{-1}.
+\]
+利用 Frobenius 友型可以大大降低我们的计算量.
+
+\subsection{Cayley-Hamilton 定理}
+
+若 $p(\lambda) = \det(\lambda I - A)$,那么 $p(A) = 0$.
